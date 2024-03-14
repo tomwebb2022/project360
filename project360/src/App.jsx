@@ -9,12 +9,10 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={examplegirl} className="background-image" alt="Vite logo" />
-        </a>
-
+      <div class="background-image">
+        <img src={examplegirl} alt="background" />
       </div>
+      
       <h1>ATEDO <br></br>
         360
       </h1>
