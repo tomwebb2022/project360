@@ -10,11 +10,12 @@ function App() {
   return (
     <>
       <div class="background-image">
+        <h1 className="title">ATEDO <br/> 360 </h1>
         <img src={examplegirl} alt="background" />
       </div>
-      
-      <h1>ATEDO <br></br>
-        360
+
+      <h1>
+        {/* contact details will go here  */}
       </h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
