@@ -5,6 +5,7 @@ import {
   CalendlyWidget,
   FAQDisplay
 } from "../components";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
