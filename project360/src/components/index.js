@@ -4,6 +4,8 @@ import ImpactStatement from './ImpactStatement'
 import CalendlyWidget from './CalendlyWidget'
 import FAQDisplay from './FAQDisplay'
 import ThreeVideosRow from './ThreeVideosRow'
+import AreYouInterestedButton from './AreYouInterestedButton'
+import EmailCollectionPopUpForm from './EmailCollectionPopUpForm'
 
 export {
     BackgroundVideo,
@@ -11,5 +13,7 @@ export {
     ImpactStatement,
     CalendlyWidget,
     FAQDisplay,
-    ThreeVideosRow
+    ThreeVideosRow,
+    AreYouInterestedButton,
+    EmailCollectionPopUpForm
     }
