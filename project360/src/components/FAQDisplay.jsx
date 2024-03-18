@@ -8,12 +8,12 @@ const FAQDisplay = () => {
         {FAQ.map((faq) => {
           return (
             <div className="faq-content" key={faq.index}>
-            <h3 className="faq-question">{faq.question}</h3>
             <div className="faq-row" key={faq.index*3}>
               <div className="faq-number-column" key={faq.index}>
                 {faq.index < 10 ? `0${faq.index}` : faq.index}
               </div>
               <div className="faq-qa-column" key={faq.index*2}>
+              <h3 className="faq-question">{faq.question}</h3>
                 <p className="faq-answer">{faq.answer}</p>
               </div>
               </div>
