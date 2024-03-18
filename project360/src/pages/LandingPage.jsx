@@ -3,7 +3,8 @@ import {
   WhatIs,
   ImpactStatement,
   CalendlyWidget,
-  FAQDisplay
+  FAQDisplay,
+  ThreeVideosRow
 } from "../components";
 import "./LandingPage.css";
 
@@ -15,6 +16,8 @@ const LandingPage = () => {
       <WhatIs />
 
       <ImpactStatement />
+
+      <ThreeVideosRow />
 
       <CalendlyWidget />
 

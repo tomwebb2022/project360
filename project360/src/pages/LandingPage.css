@@ -1,3 +1,20 @@
+.three-videos-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 10px;
+  width: 90%;
+  max-width: 800px;
+}
+
+.video {
+  width: 100%;
+  max-width: 100px;
+  margin: 5px;
+}
+
 .faq-container {
   display: flex;
   flex-direction: column;
