@@ -1,17 +1,25 @@
-import { BackgroundVideo, WhatIs, ImpactStatement, CalendlyWidget } from '../components'
+import {
+  BackgroundVideo,
+  WhatIs,
+  ImpactStatement,
+  CalendlyWidget,
+  FAQDisplay
+} from "../components";
 
 const LandingPage = () => {
   return (
     <>
-  <BackgroundVideo />  
+      <BackgroundVideo />
 
-  <WhatIs />
-<ImpactStatement />
+      <WhatIs />
 
-<CalendlyWidget />
-      
-      </>
-  )
-}
+      <ImpactStatement />
 
-export default LandingPage
+      <CalendlyWidget />
+
+      <FAQDisplay />
+    </>
+  );
+};
+
+export default LandingPage;
