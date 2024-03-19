@@ -1,17 +1,33 @@
-import { BackgroundVideo, WhatIs, ImpactStatement, CalendlyWidget } from '../components'
+import {
+  BackgroundVideo,
+  WhatIs,
+  ImpactStatement,
+  CalendlyWidget,
+  FAQDisplay,
+  ThreeVideosRow,
+  AreYouInterestedButton
+} from "../components";
+import "./LandingPage.css";
 
-const LandingPage = () => {
+const LandingPage = ({ formOpen, setFormOpen, closeForm, emails, updateEmails }) => {
   return (
     <>
-  <BackgroundVideo />  
+      <BackgroundVideo />
 
-  <WhatIs />
-<ImpactStatement />
+      <WhatIs />
 
-<CalendlyWidget />
-      
-      </>
-  )
-}
+      <ImpactStatement />
 
-export default LandingPage
+      <ThreeVideosRow />
+
+      <CalendlyWidget />
+
+      <FAQDisplay />
+
+      <AreYouInterestedButton formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={updateEmails} />
+    
+    </>
+  );
+};
+
+export default LandingPage;
