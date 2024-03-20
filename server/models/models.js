@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose, { model } from 'mongoose';
 
 const { Schema } = mongoose;
 
@@ -13,10 +13,18 @@ const emailSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        minlength: 8
+        minlength: 8,
+        validate: {
+            validator: async function(value) {
+                // Check if the email address is already in use
+                const existingEmail = await this.constructor.findOne({ email: value });
+                return !existingEmail; // Return false if the email already exists
+            },
+            message: "Email address must be unique" // Custom error message
+        }
     }
 });
 
-const EmailModel = mongoose.model('emails', emailSchema);
+const EmailModel = model('emails', emailSchema);
 
-module.exports = EmailModel;
+export default EmailModel;

@@ -1,7 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { emailRouter } from "./routes/routes.js";
+
 
 dotenv.config();
 
@@ -23,3 +25,7 @@ mongoose.connect(mongoUri)
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+// Sets up route handlers for two paths
+app.use("/emails", emailRouter);
+// app.use("/users", userRouter);
