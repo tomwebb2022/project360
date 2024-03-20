@@ -11,14 +11,16 @@ function App() {
   const [emails, setEmails] = useState(emailList);
 
   const [modalState, setModalState] = useState({
-    aboutOpen: false,
-    guidanceOpen: false,
+    privacyOpen: false,
+    teamOpen: false,
+    accessibilityOpen: false,
   });
 
   const closeModal = () => {
     setModalState({
-      aboutOpen: false,
-      guidanceOpen: false,
+      privacyOpen: false,
+      teamOpen: false,
+      accessibilityOpen: false,
     });
   };  
 
