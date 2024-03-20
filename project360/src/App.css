@@ -1,7 +1,14 @@
+:root {
+  --orange: #b7572f;
+  --teal: #377987;
+  --pink: #ab4063;
+  --overlay: rgba(170, 211, 223, 0.8);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   padding-top: 0;
   /* padding-bottom: 2rem; */
   text-align: center;
