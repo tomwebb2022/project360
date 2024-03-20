@@ -51,3 +51,28 @@
 .calendly iframe {
   height: 1000px !important;
 }
+
+.customOverlay {
+  background: rgba(36, 123, 160, 0.7);
+}
+
+.customModal {
+  background: #929788;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  height: 2.7rem;
+}
+
+.form-control {
+  height: 1.3rem;
+  padding: 0.1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  width: 20rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
