@@ -28,7 +28,7 @@ const TeamPopup = ({ isOpen, onClose }) => {
     >
       <div className="text-popups-container">
 
-      <h1 className="text-popup-footer">Design & Development Team</h1>
+      <h1 className="title-popup-footer">Design & Development Team</h1>
 
       </div>
     </Modal>

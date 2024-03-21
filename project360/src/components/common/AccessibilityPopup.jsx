@@ -28,8 +28,11 @@ const AccessibilityPopup = ({ isOpen, onClose }) => {
     >
       <div className="text-popups-container">
 
-      <h1 className="text-popup-footer">Web Accessibility Statement</h1>
+      <h2 className="title-popup-footer">Web Accessibility Statement</h2>
 
+      <p className="text-popup-footer">
+        ATEDO is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone, and applying the relevant accessibility standards.
+      </p>
       </div>
     </Modal>
   );

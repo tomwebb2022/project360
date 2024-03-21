@@ -52,6 +52,15 @@
   height: 1000px !important;
 }
 
+.text-link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.text-link:hover {
+  color: var(--teal);
+}
+
 .customOverlay {
   /* background: rgba(36, 123, 160, 0.7); */
   background-color: transparent;

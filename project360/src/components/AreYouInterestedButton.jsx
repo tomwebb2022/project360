@@ -9,10 +9,10 @@ const AreYouInterestedButton = ({ formOpen, setFormOpen, emails, updateEmails })
   return (
     <div className="interested-button-container">
     <div
-    className="interested-button"
+    className="text-link"
     onClick={toggleForm}
     >
-        <p className="interested-button-text">Are you interested?</p>
+        <p className="text-link">Are you interested?</p>
         
     </div>
   

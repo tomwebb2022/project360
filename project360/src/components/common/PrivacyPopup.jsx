@@ -28,7 +28,11 @@ const PrivacyPopup = ({ isOpen, onClose }) => {
     >
       <div className="text-popups-container">
 
-      <h1 className="text-popup-footer">Privacy Policy</h1>
+      <h2 className="title-popup-footer">Privacy Policy</h2>
+
+      <p className="text-popup-footer">
+      If you subscribe to our newsletter, we will use your email address to send you updates about our products and services. We will never share your name and email address with third parties.
+      </p>
 
       </div>
     </Modal>

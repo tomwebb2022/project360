@@ -1,5 +1,6 @@
 import "./Footer.css";
 import { PrivacyPopup, TeamPopup, AccessibilityPopup } from "./index";
+import { instagramIcon, youtubeIcon } from "../../assets";
 
 const Footer = ({ modalState, setModalState }) => {
   const { privacyOpen, teamOpen, accessibilityOpen } = modalState;
@@ -36,14 +37,30 @@ const Footer = ({ modalState, setModalState }) => {
       <div>
           <p>Find us on:</p>
         </div>
-          <div className="contact-icons">
-            <p>facebook</p>
-            <p>email</p>
+          <div>
+            <a
+              href="https://www.instagram.com/jamescourtenay/"
+              target="_blank"
+              rel="noreferrer"
+              alt="link to Instagram profile"
+            >
+              <img src={instagramIcon} alt="Instagram" className="contact-icon" />
+            </a>
+            <a
+              href="https://www.youtube.com/@bulaboy183"
+              target="_blank"
+              rel="noreferrer"
+              alt="link to Youtube channel"
+            >
+              <img src={youtubeIcon} alt="Youtube" className="contact-icon" />
+            </a>
             </div>
         </div>
 
         <div className="calendly-link-container">
-          <p>Book a call</p>
+          <a href="https://calendly.com/anastasiaadamoudi/30min?month=2024-03" target="_blank" rel="noreferrer">
+          <button className="submit-button">Book a meeting</button>
+          </a>
         </div>
       </div>
 
@@ -55,7 +72,7 @@ const Footer = ({ modalState, setModalState }) => {
           <p
             type="button"
             onClick={toggleTeamModal}
-            className="footer-popup-button"
+            className="text-link"
           >
             Design & Development Team
           </p>
@@ -65,7 +82,7 @@ const Footer = ({ modalState, setModalState }) => {
           <p
             type="button"
             onClick={togglePrivacyModal}
-            className="footer-popup-button"
+            className="text-link"
           >
             Privacy Policy
           </p>
@@ -78,7 +95,7 @@ const Footer = ({ modalState, setModalState }) => {
           <p
             type="button"
             onClick={toggleAccessibilityModal}
-            className="footer-popup-button"
+            className="text-link"
           >
             Web Accessibility Statement
           </p>
