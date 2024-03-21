@@ -69,7 +69,7 @@ const EmailCollectionPopUpForm = ({
     >
       <div className="form-container">
         <div className="form-content">
-            <h2>If you're interested in this project, please subscribe to our newsletter!</h2>
+            <h2>If you&apos;re interested in this project, please subscribe to our newsletter!</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label htmlFor="userName" className="form-label">
