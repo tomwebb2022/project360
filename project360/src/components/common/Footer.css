@@ -13,7 +13,7 @@
 .footer-divider {
     width: 90%;
     height: 2px;
-    background-color: var(--pink);
+    background-color: black;
 }
 
 .footer-contact-top {
@@ -45,4 +45,9 @@
 
 .footer-popup-button:active {
     color: var(--pink);
+}
+
+.contact-icon {
+   width: 40px;
+   padding: 5px;
 }
