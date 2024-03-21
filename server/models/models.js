@@ -6,8 +6,7 @@ const emailSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
-        minlength: 2
+        minlength: 2,
     },
     email: {
         type: String,
