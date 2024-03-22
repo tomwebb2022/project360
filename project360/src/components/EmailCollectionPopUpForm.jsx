@@ -1,8 +1,10 @@
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import axios from 'axios';
 
 const EmailCollectionPopUpForm = ({
   isOpen,
@@ -24,8 +26,9 @@ const EmailCollectionPopUpForm = ({
 
   const schema = z.object({
     userName: z.string().nonempty({ message: "Your name is required" }),
-    userEmail: z.string().email({ message: "Invalid email address" }),
+    userEmail: z.string().email({ message: "Invalid email address" }).nonempty({ message: "Email is required" }),
   });
+  
 
   const { register, handleSubmit, formState, reset } = useForm({
     resolver: zodResolver(schema),
@@ -33,25 +36,29 @@ const EmailCollectionPopUpForm = ({
 
   const { errors } = formState;
 
+
   const onSubmit = async (formData) => {
     try {
       const newEmail = {
         name: formData.userName,
         email: formData.userEmail
-        };
-
-        updateEmails([...emails, newEmail]);
-
+      };
+  
+      const response = await axios.post("http://localhost:3000/emails", newEmail);
+  
+      console.log(response.data);
+  
       reset({
         userName: "",
         userEmail: "",
       });
-
+  
       onClose();
     } catch (err) {
       console.error(err.message);
     }
   };
+  
 
   return (
     <Modal

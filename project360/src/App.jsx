@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { LandingPage, Gallery } from './pages/index';
+import { LandingPage, Gallery, Dashboard } from './pages/index';
 import Footer from './components/common/Footer';
 import { useState } from 'react';
 import { emailList } from './data/emails';
@@ -29,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={setEmails} />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer modalState={modalState} setModalState={setModalState} closeModal={closeModal} />
     </Router>
