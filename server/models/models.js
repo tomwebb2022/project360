@@ -34,9 +34,14 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 8,
-    }
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'], // two different roles either user or admin
+        default: 'admin', //default is set to admin
+    },
 });
 
-const EmailModel = model('emails', emailSchema);
+export const EmailModel = model('emails', emailSchema);
+export const UserModel = model('users', userSchema);
 
-export default EmailModel;
