@@ -24,6 +24,19 @@ const emailSchema = new Schema({
     }
 });
 
+const userSchema = new Schema({
+    username: {
+        type: String,
+        required: true,
+        minlength: 2,
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: 8,
+    }
+});
+
 const EmailModel = model('emails', emailSchema);
 
 export default EmailModel;
