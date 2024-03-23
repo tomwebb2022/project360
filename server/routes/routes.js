@@ -11,7 +11,16 @@ emailRouter.get('/', controllers.getAllEmails)
 userRouter.post('/', userControllers.addUserController); // the route where a new user is added to the list of users
 userRouter.get('/', userControllers.getAllUsers)
 userRouter.post('/login', userControllers.loginUser)
-userRouter.get('/api/authenticate', userControllers.authenticateUser, userControllers.authoriseUser('admin')) // checks if user is authenticated/has a session token and if their role is "admin"
+
+userRouter.get(
+    '/api/authenticate',
+    userControllers.authenticateUser, // Authenticate user
+    userControllers.authoriseUser('admin'), // Authorize user (requires 'admin' role)
+    (req, res) => {
+      // Route handler logic for /api/authenticate
+      res.status(200).json({ message: 'Authenticated and authorised successfully' });
+    }
+  );
 
 
 export { emailRouter };
