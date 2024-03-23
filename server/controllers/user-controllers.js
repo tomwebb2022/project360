@@ -1,4 +1,6 @@
 import { UserModel } from "../models/models.js";
+import jwt from 'jsonwebtoken';
+
 
 export async function addUserController(req, res) {
   const newUser = req.body;
@@ -19,11 +21,16 @@ export async function getAllUsers(req, res) {
   }
 }
 
+const secretKey = "bc56f541505e05ff68b989b5a6882120a663f337bc33b128f205bdcc908b9b78"  // provisional secret key
+const exampleToken = {
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZlZTczMThlMGM0MzVkYjM4YmRiMzQiLCJpYXQiOjE3MTEyMTEwNjR9.xX-3lNnVY4Gbcyd1vS4cyqS1PmASIrnJZ_sNzHn_2_0"
+}           // this token was generated when I logged in
+
 export async function loginUser(req, res) {
   try {
     const { name, email, password } = req.body;
     // Check if the user exists
-    const user = await UserModel.findOne({ name }); // can change to email instead
+    const user = await UserModel.findOne({ name });
     if (!user) {
       return res.status(401).json({ error: "Invalid username" });
     }
@@ -33,7 +40,7 @@ export async function loginUser(req, res) {
       return res.status(401).json({ error: "Invalid password" });
     }
     // Generate a JWT token
-    const token = jwt.sign({ userId: user._id }, "secretKey");
+    const token = jwt.sign({ userId: user._id }, secretKey);  // need to replace secretKey with actual secret key
 
     res.status(200).json({ token });
   } catch (error) {
@@ -48,7 +55,7 @@ export function authenticateUser(req, res, next) {
     const token = req.headers.authorization.split(" ")[1];
 
     // Verify the token
-    const decodedToken = jwt.verify(token, "secretKey");
+    const decodedToken = jwt.verify(token, secretKey);   // need to replace secretkey
 
     // Attach the user ID to the request object
     req.userId = decodedToken.userId;
