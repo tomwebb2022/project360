@@ -26,6 +26,7 @@ function App() {
   };  
 
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track authentication status
+// change me to true if you want to view dashboard without logging in
 
   useEffect(() => {
     // Check user's authentication status when the component mounts
