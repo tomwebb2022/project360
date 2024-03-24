@@ -10,7 +10,7 @@ emailRouter.get('/', controllers.getAllEmails)
 
 userRouter.post('/', userControllers.addUserController); // the route where a new user is added to the list of users
 userRouter.get('/', userControllers.getAllUsers)
-userRouter.post('/login', userControllers.loginUser)
+userRouter.post('/login', userControllers.loginUser) // the route where a registered user logs in
 
 userRouter.get(
     '/api/authenticate',

@@ -1,7 +1,6 @@
 import { UserModel } from "../models/models.js";
 import jwt from 'jsonwebtoken';
 
-
 export async function addUserController(req, res) {
   const newUser = req.body;
   try {
@@ -21,7 +20,7 @@ export async function getAllUsers(req, res) {
   }
 }
 
-const secretKey = "bc56f541505e05ff68b989b5a6882120a663f337bc33b128f205bdcc908b9b78"  // provisional secret key
+const secretKey = process.env.JWT_SECRET
 const exampleToken = {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZlZTczMThlMGM0MzVkYjM4YmRiMzQiLCJpYXQiOjE3MTEyMTEwNjR9.xX-3lNnVY4Gbcyd1vS4cyqS1PmASIrnJZ_sNzHn_2_0"
 }           // this token was generated when I logged in

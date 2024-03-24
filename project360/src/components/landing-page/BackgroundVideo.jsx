@@ -1,4 +1,4 @@
-import dance from "../assets/dance.mp4";
+import dance from "../../assets/dance.mp4";
 
 function BackgroundVideo() {
   return (

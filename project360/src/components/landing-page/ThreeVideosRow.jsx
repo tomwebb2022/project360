@@ -1,5 +1,5 @@
-import dance from '../assets/dance.mp4'
-import '../pages/LandingPage.css'
+import dance from '../../assets/dance.mp4'
+import '../../pages/LandingPage.css'
 
 const ThreeVideosRow = () => {
     return (

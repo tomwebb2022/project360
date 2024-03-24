@@ -1,4 +1,4 @@
-import { FAQ } from "../data/FAQ";
+import { FAQ } from "../../data/FAQ";
 
 const FAQDisplay = () => {
   return (

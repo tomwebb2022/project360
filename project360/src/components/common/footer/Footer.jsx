@@ -1,6 +1,6 @@
 import "./Footer.css";
-import { PrivacyPopup, TeamPopup, AccessibilityPopup } from "./index";
-import { instagramIcon, youtubeIcon } from "../../assets";
+import { PrivacyPopup, TeamPopup, AccessibilityPopup } from "../index";
+import { instagramIcon, youtubeIcon } from "../../../assets";
 
 const Footer = ({ modalState, setModalState }) => {
   const { privacyOpen, teamOpen, accessibilityOpen } = modalState;

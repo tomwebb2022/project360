@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { LandingPage, Gallery, Dashboard, Login } from './pages/index';
-import Footer from './components/common/Footer';
+import Footer from './components/common/footer/Footer';
 import { useState, useEffect } from 'react';
 import { emailList } from './data/emails';
 import axios from "axios";
@@ -8,8 +8,19 @@ import './App.css';
 
 function App() {
 
-  const [formOpen, setFormOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState({
+    loginOpen: false,
+    emailOpen: false
+  });
+
+  const toggleForm = () => {
+    setFormOpen(!formOpen);
+  };
+
   const [emails, setEmails] = useState(emailList);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track authentication status
+// change me to true if you want to view dashboard without logging in
 
   const [modalState, setModalState] = useState({
     privacyOpen: false,
@@ -24,9 +35,6 @@ function App() {
       accessibilityOpen: false,
     });
   };  
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track authentication status
-// change me to true if you want to view dashboard without logging in
 
   useEffect(() => {
     // Check user's authentication status when the component mounts
@@ -56,7 +64,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={setEmails} />} />
+        <Route path="/" element={<LandingPage toggleForm={toggleForm} formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={setEmails} modalState={setModalState} />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
