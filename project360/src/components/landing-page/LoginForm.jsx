@@ -6,11 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from 'axios';
 
-const EmailCollectionPopUpForm = ({
+const LoginForm = ({
   isOpen,
-  onClose,
-  isLoggedIn,
-  setIsLoggedIn,
+  onClose
 }) => {
   const closeIcon = (
     <svg fill="#000000" viewBox="0 0 20 20" width={28} height={28}>
@@ -25,8 +23,8 @@ const EmailCollectionPopUpForm = ({
   );
 
   const schema = z.object({
-    userName: z.string().nonempty({ message: "Your name is required" }),
-    userEmail: z.string().email({ message: "Invalid email address" }).nonempty({ message: "Email is required" }),
+    username: z.string().nonempty({ message: "Username is required" }),
+    password: z.string().nonempty({ message: "Password is required" }),
   });
   
 
@@ -39,12 +37,12 @@ const EmailCollectionPopUpForm = ({
 
   const onSubmit = async (formData) => {
     try {
-      const newEmail = {
-        name: formData.userName,
-        email: formData.userEmail
+      const userDetails = {
+        username: formData.username,
+        password: formData.password
       };
   
-      const response = await axios.post("http://localhost:3000/emails", newEmail);
+      const response = await axios.post("http://localhost:3000/users/login", userDetails);
   
       console.log(response.data);
   
@@ -76,37 +74,37 @@ const EmailCollectionPopUpForm = ({
     >
       <div className="form-container">
         <div className="form-content">
-            <h2>If you&apos;re interested in this project, please subscribe to our newsletter!</h2>
+            <h2>Please enter your admin username and password:</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
-              <label htmlFor="userName" className="form-label">
-                Name
+              <label htmlFor="username" className="form-label">
+                Username
               </label>
               <input
                 {...register("userName", { required: true })}
                 type="text"
                 className="form-control"
-                id="name"
-                placeholder="Enter your name"
+                id="username"
+                placeholder="Enter the username"
               />
               <div className="error-message">
-                {errors?.userName?.message}
+                {errors?.username?.message}
               </div>
             </div>
 
             <div className="form-group">
-              <label htmlFor="userEmail" className="form-label">
-                Email
+              <label htmlFor="password" className="form-label">
+                Password
               </label>
               <input
                 {...register("password", { required: true })}
-                type="email"
+                type="string"
                 className="form-control"
-                id="email"
-                placeholder="Enter your email"
+                id="password"
+                placeholder="Enter the password"
               />
               <div className="error-message">
-                {errors?.creatorEmail?.message}
+                {errors?.password?.message}
               </div>
             </div>
 
@@ -122,4 +120,4 @@ const EmailCollectionPopUpForm = ({
   );
 };
 
-export default EmailCollectionPopUpForm;
+export default LoginForm;

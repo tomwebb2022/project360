@@ -8,10 +8,7 @@ import './App.css';
 
 function App() {
 
-  const [formOpen, setFormOpen] = useState({
-    loginOpen: false,
-    emailOpen: false
-  });
+  const [formOpen, setFormOpen] = useState(false);
 
   const toggleForm = () => {
     setFormOpen(!formOpen);

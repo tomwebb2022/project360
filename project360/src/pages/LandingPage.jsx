@@ -25,7 +25,7 @@ const LandingPage = ({ formOpen, setFormOpen, closeForm, emails, updateEmails, i
 
       <FAQDisplay />
 
-      <SecretLoginButton formOpen={formOpen} setFormOpen={setFormOpen} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <SecretLoginButton formOpen={formOpen} setFormOpen={setFormOpen}/>
 
       <AreYouInterestedButton formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={updateEmails} />
     

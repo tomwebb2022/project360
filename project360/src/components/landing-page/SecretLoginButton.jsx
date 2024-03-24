@@ -1,23 +1,13 @@
-import LoginForm from './LoginForm';
+import { Link } from 'react-router-dom';
 
-const SecretLoginButton = ({ formOpen, setFormOpen, isLoggedIn, setIsLoggedIn }) => {
-  const toggleForm = () => {
-    setFormOpen(!formOpen);
-  }
-
+const SecretLoginButton = () => {
   return (
-    <div className="interested-button-container">
-    <div
-    className="text-link"
-    onClick={toggleForm}
-    >
-        <p className="text-link">Are you interested?</p>
-        
+    <div className="secret-login-button-container">
+      <Link to="/login" className="text-link">
+        <p className="text-link">Admin login</p>
+      </Link>
     </div>
-  
-    <LoginForm isOpen={formOpen} onClose={toggleForm} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-    </div>
-  )
+  );
 }
 
 export default SecretLoginButton;
