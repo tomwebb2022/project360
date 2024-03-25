@@ -44,6 +44,7 @@ function App() {
       try {
         // Retrieve token from the server
         const response = await axios.get("/users/authentication");
+        console.log("response",response.data);
         const token = response.data.token;
         if (token) {
           setIsLoggedIn(true);

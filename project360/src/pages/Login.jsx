@@ -34,7 +34,10 @@ const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
         "http://localhost:3000/users/login",
         userDetails
       );
-
+      console.log("login response", response.data);
+      localStorage.setItem("token", response.data.token);
+      const token = localStorage.getItem("token");
+      console.log("token", token);
       // if (isLoggedIn) {
       //   <Link to="/dashboard" />;
       // }

@@ -8,18 +8,19 @@ dotenv.config();
 const admin_username = process.env.ADMIN_USERNAME;
 const admin_password = process.env.ADMIN_PASSWORD;
 const secretKey = process.env.JWT_SECRET;
+let adminUser;
 
 export async function loginUser(req, res) {
   try {
     const { username, password } = req.body;
-
-    const adminUser = await UserModel.findOne({ username: username });
+    // console.log(username, password);
+    adminUser = await UserModel.findOne({ username: username });
     if (!adminUser) {
       return res.status(401).json({ error: "Invalid username" });
     }
     // Check if the password is valid
     let isPasswordValid = await bcrypt.compare(password, adminUser.password);
-   
+    console.log("valid password",isPasswordValid);
     if (isPasswordValid) {
       // Generate a JWT token
       const token = jwt.sign({ username: admin_username }, secretKey);
