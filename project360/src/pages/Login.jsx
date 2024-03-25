@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
-import bcrypt from "bcryptjs-react";
 import { Link } from "react-router-dom";
 
 const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
@@ -22,7 +21,7 @@ const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
 
   const onSubmit = async (formData) => {
     try {
-      // const hashedPassword = await bcrypt.hash(formData.password, 10);
+      
 
       const userDetails = {
         username: formData.username,
