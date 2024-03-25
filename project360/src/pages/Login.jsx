@@ -21,11 +21,11 @@ const Login = () => {
 
   const onSubmit = async (formData) => {
     try {
-        const hashedPassword = await bcrypt.hash(formData.password, 10);
+        // const hashedPassword = await bcrypt.hash(formData.password, 10);
 
         const userDetails = {
           username: formData.username,
-          password: hashedPassword
+          password: formData.password,
         };
 
         console.log(userDetails);

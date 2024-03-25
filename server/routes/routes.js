@@ -15,7 +15,7 @@ userRouter.post('/login', userControllers.loginUser) // the route where a regist
 userRouter.get(
     '/api/authenticate',
     userControllers.authenticateUser, // Authenticate user
-    userControllers.authoriseUser('admin'), // Authorise user (requires 'admin' role)
+    // userControllers.authoriseUser('admin'), // Authorise user (requires 'admin' role)
     (req, res) => {
       // Route handler logic for /api/authenticate
       res.status(200).json({ message: 'Authenticated and authorised successfully' });

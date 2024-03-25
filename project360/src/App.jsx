@@ -37,26 +37,30 @@ function App() {
     // Check user's authentication status when the component mounts
     async function checkAuthentication() {
       try {
-        const token = localStorage.getItem("token");
-
-        if (token) {
-          // Send the token in the request headers
-          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-          // Verify the token on the server
-          await axios.get("/users/api/authenticate");
-
-          setIsLoggedIn(true);
+        // Retrieve token from the server
+        const response = await axios.get("/users/api/authenticate");
+        const token = response.data.token;
+  
+        setIsLoggedIn(true);
+        // Get the token from local storage
+        const localStorageToken = localStorage.getItem("token");
+        // Compare the tokens
+        if (token === localStorageToken) {
+          console.log("Tokens match");
+        } else {
+          console.log("Tokens do not match");
         }
       } catch (error) {
         console.error("Error authenticating user:", error);
-        setIsLoggedIn(false);
+        // setIsLoggedIn(false);
       }
     }
+  
+ 
 
     checkAuthentication();
-
-  }, []);
+    console.log(isLoggedIn)
+  }, [isLoggedIn]);
 
   return (
     <Router>
@@ -64,7 +68,7 @@ function App() {
         <Route path="/" element={<LandingPage toggleForm={toggleForm} formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={setEmails} modalState={setModalState} />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={isLoggedIn? <Navigate to="/dashboard" /> : <Login />} />
       </Routes>
       <Footer modalState={modalState} setModalState={setModalState} closeModal={closeModal} />
     </Router>

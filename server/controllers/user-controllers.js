@@ -1,6 +1,9 @@
 import { UserModel } from "../models/models.js";
+import dotenv from 'dotenv';
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+dotenv.config();
+
 
 const admin_username = process.env.ADMIN_USERNAME;
 const admin_password = process.env.ADMIN_PASSWORD;
@@ -15,11 +18,14 @@ export async function loginUser(req, res) {
       return res.status(401).json({ error: "Invalid username" });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, adminUser.password);
-    console.log(adminUser.password, password, isPasswordValid)
+    // let isPasswordValid = await bcrypt.compare(password, adminUser.password);
+    let isPasswordValid = password === adminUser.password;
+    // console.log(adminUser.password, password, isPasswordValid)
+   
+    // console.log(secretKey, adminUser.username, isPasswordValid)
     if (isPasswordValid) {
       // Generate a JWT token
-      const token = jwt.sign({ username: admin_username }, secretKey);
+      const token = jwt.sign({ username: adminUser.username}, secretKey);
       return res.status(200).json({ token });
     } else {
       return res.status(401).json({ error: "Invalid password" });
@@ -122,7 +128,4 @@ export const authoriseUser = (requiredRole) => async (req, res, next) => {
   }
 };
 
-export function dashboardLogic(req, res, next) {
-  console.log("dashboard logic");
-  next();
-}
+
