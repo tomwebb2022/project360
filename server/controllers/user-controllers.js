@@ -1,10 +1,33 @@
 import { UserModel } from "../models/models.js";
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 const admin_username = process.env.ADMIN_USERNAME;
 const admin_password = process.env.ADMIN_PASSWORD;
 const secretKey = process.env.JWT_SECRET;
+
+export async function loginUser(req, res) {
+  try {
+    const { username, password } = req.body;
+
+    const adminUser = await UserModel.findOne({ username: username });
+    if (!adminUser) {
+      return res.status(401).json({ error: "Invalid username" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, adminUser.password);
+    console.log(adminUser.password, password, isPasswordValid)
+    if (isPasswordValid) {
+      // Generate a JWT token
+      const token = jwt.sign({ username: admin_username }, secretKey);
+      return res.status(200).json({ token });
+    } else {
+      return res.status(401).json({ error: "Invalid password" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "An error occurred while logging in" });
+  }
+}
 
 export async function addUserController(req, res) {
   const newUser = req.body;
@@ -25,24 +48,26 @@ export async function getAllUsers(req, res) {
   }
 }
 
-export async function loginUser(req, res) {
-  try {
-    const { username, password } = req.body;
+// console.log(req)
+// export async function loginUser(req, res, admin_password) {
+//   try {
+//     const { username, password } = req.body;
 
-    console.log(username, password);
+//     console.log(username, password);
 
-    const isPasswordValid = await bcrypt.compare(password, admin_password);
-    if (isPasswordValid) {
-      // Generate a JWT token
-      const token = jwt.sign({ username: admin_username }, secretKey);
-      return res.status(200).json({ token });
-    } else {
-      return res.status(401).json({ error: "Invalid pasword" });
-    }
-  }
-  catch (error) {
-    res.status(500).json({ error: "An error occurred while logging in" });
-  }
+//     const isPasswordValid = await bcrypt.compare(password, admin_password);
+//     if (isPasswordValid) {
+//       // Generate a JWT token
+//       const token = jwt.sign({ username: admin_username }, secretKey);
+//       return res.status(200).json({ token });
+//     } else {
+//       return res.status(401).json({ error: "Invalid password" });
+//     }
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occurred while logging in" });
+//     console.log(res.data);
+//   }
+// }
 
 //     if (username === admin_username) {
 //       const isPasswordValid = await bcrypt.compare(password, admin_password);
@@ -59,7 +84,7 @@ export async function loginUser(req, res) {
 //   } catch (error) {
 //     res.status(500).json({ error: "An error occurred while logging in" });
 //   }
-};
+// };
 
 // Authentication middleware
 export function authenticateUser(req, res, next) {
@@ -97,8 +122,7 @@ export const authoriseUser = (requiredRole) => async (req, res, next) => {
   }
 };
 
-
 export function dashboardLogic(req, res, next) {
-    console.log("dashboard logic");
-    next();
+  console.log("dashboard logic");
+  next();
 }
