@@ -17,16 +17,13 @@ export async function loginUser(req, res) {
     if (!adminUser) {
       return res.status(401).json({ error: "Invalid username" });
     }
-
-    // let isPasswordValid = await bcrypt.compare(password, adminUser.password);
-    let isPasswordValid = password === adminUser.password;
-    // console.log(adminUser.password, password, isPasswordValid)
+    // Check if the password is valid
+    let isPasswordValid = await bcrypt.compare(password, adminUser.password);
    
-    // console.log(secretKey, adminUser.username, isPasswordValid)
     if (isPasswordValid) {
       // Generate a JWT token
-      const token = jwt.sign({ username: adminUser.username}, secretKey);
-      return res.status(200).json({ token });
+      const token = jwt.sign({ username: admin_username }, secretKey);
+      return res.status(200).json({ token, message: "Login successful" });
     } else {
       return res.status(401).json({ error: "Invalid password" });
     }
@@ -35,11 +32,13 @@ export async function loginUser(req, res) {
   }
 }
 
-
+// delete user not currently working but was working once
 export async function deleteUser(req, res) {
-  const { username } = req.params;
+  const { username } = req.params; 
+  // console.log(username);
   try {
     const userData = await UserModel.findOneAndDelete({ username: username });
+    console.log(userData);
     if (!userData) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -55,7 +54,7 @@ export async function addUserController(req, res) {
   
   try {
     // Hash the password before saving
-    const hashedPassword = await bcrypt.hash(newUser.password, 10); // You can adjust the salt rounds as needed
+    const hashedPassword = await bcrypt.hash(newUser.password, 10); 
   
     // Replace the plain text password with the hashed password
     newUser.password = hashedPassword;
@@ -78,43 +77,7 @@ export async function getAllUsers(req, res) {
   }
 }
 
-// console.log(req)
-// export async function loginUser(req, res, admin_password) {
-//   try {
-//     const { username, password } = req.body;
 
-//     console.log(username, password);
-
-//     const isPasswordValid = await bcrypt.compare(password, admin_password);
-//     if (isPasswordValid) {
-//       // Generate a JWT token
-//       const token = jwt.sign({ username: admin_username }, secretKey);
-//       return res.status(200).json({ token });
-//     } else {
-//       return res.status(401).json({ error: "Invalid password" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ error: "An error occurred while logging in" });
-//     console.log(res.data);
-//   }
-// }
-
-//     if (username === admin_username) {
-//       const isPasswordValid = await bcrypt.compare(password, admin_password);
-//       if (isPasswordValid) {
-//         // Generate a JWT token
-//         const token = jwt.sign({ username: admin_username }, secretKey);
-//         return res.status(200).json({ token });
-//       } else {
-//         return res.status(401).json({ error: "Invalid password" });
-//       }
-//     } else {
-//       return res.status(401).json({ error: "Invalid username" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ error: "An error occurred while logging in" });
-//   }
-// };
 
 // Authentication middleware
 export function authenticateUser(req, res, next) {
@@ -134,10 +97,10 @@ export function authenticateUser(req, res, next) {
   }
 }
 
-// Authorization middleware
+// Authorization middleware - not being used now - should check if user is admin or not
 export const authoriseUser = (requiredRole) => async (req, res, next) => {
   try {
-    const user = await UserModel.findById(req.userId);
+    const user = await UserModel.findOne(req.body.username);
 
     if (user.role !== requiredRole) {
       return res.status(403).json({ error: "Forbidden" });

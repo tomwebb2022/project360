@@ -42,14 +42,7 @@ const userSchema = new Schema({
     },
 });
 
-// Method to compare passwords
-// userSchema.methods.comparePassword = async function(adminPassword) {
-//     return bcrypt.compare(adminPassword, this.password);
-//   };
 
-// userSchema.methods.comparePassword = () => {
-//     return true
-// }
 
 export const EmailModel = model('emails', emailSchema);
 export const UserModel = model('users', userSchema);
