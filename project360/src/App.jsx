@@ -1,14 +1,19 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { LandingPage, Gallery, Dashboard, Login } from './pages/index';
-import Footer from './components/common/footer/Footer';
-import { useState, useEffect } from 'react';
-import { emailList } from './data/emails';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { LandingPage, Gallery, Dashboard, Login } from "./pages/index";
+import Footer from "./components/common/footer/Footer";
+import { useState, useEffect } from "react";
+import { emailList } from "./data/emails";
 import axios from "axios";
-import './App.css';
+import "./App.css";
 
 function App() {
-
   const [formOpen, setFormOpen] = useState(false);
+  const [submitClick, setSubmitClick] = useState(false);
 
   const toggleForm = () => {
     setFormOpen(!formOpen);
@@ -17,7 +22,7 @@ function App() {
   const [emails, setEmails] = useState(emailList);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track authentication status
-// change me to true if you want to view dashboard without logging in
+  // change me to true if you want to view dashboard without logging in
 
   const [modalState, setModalState] = useState({
     privacyOpen: false,
@@ -31,7 +36,7 @@ function App() {
       teamOpen: false,
       accessibilityOpen: false,
     });
-  };  
+  };
 
   useEffect(() => {
     // Check user's authentication status when the component mounts
@@ -40,8 +45,9 @@ function App() {
         // Retrieve token from the server
         const response = await axios.get("/users/api/authenticate");
         const token = response.data.token;
-  
-        setIsLoggedIn(true);
+        if (token) {
+          setIsLoggedIn(true);
+        }
         // Get the token from local storage
         const localStorageToken = localStorage.getItem("token");
         // Compare the tokens
@@ -55,24 +61,47 @@ function App() {
         // setIsLoggedIn(false);
       }
     }
-  
- 
 
     checkAuthentication();
-    console.log(isLoggedIn)
-  }, [isLoggedIn]);
+    console.log(isLoggedIn);
+  }, [submitClick]);
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage toggleForm={toggleForm} formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={setEmails} modalState={setModalState} />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage
+              toggleForm={toggleForm}
+              formOpen={formOpen}
+              setFormOpen={setFormOpen}
+              emails={emails}
+              updateEmails={setEmails}
+              modalState={setModalState}
+            />
+          }
+        />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
-        <Route path="/login" element={isLoggedIn? <Navigate to="/dashboard" /> : <Login />} />
+        <Route
+          path="/dashboard"
+          element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/login"
+          isLoggedIn={isLoggedIn}
+          submitClick={submitClick}
+          setSubmitClick={setSubmitClick}
+          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />}
+        />
       </Routes>
-      <Footer modalState={modalState} setModalState={setModalState} closeModal={closeModal} />
+      <Footer
+        modalState={modalState}
+        setModalState={setModalState}
+        closeModal={closeModal}
+      />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

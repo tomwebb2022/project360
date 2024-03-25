@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import axios from 'axios';
-import bcrypt from 'bcryptjs-react'; 
+import axios from "axios";
+import bcrypt from "bcryptjs-react";
+import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
   const schema = z.object({
     username: z.string().nonempty({ message: "Username is required" }),
     password: z.string().nonempty({ message: "Password is required" }),
@@ -21,24 +22,32 @@ const Login = () => {
 
   const onSubmit = async (formData) => {
     try {
-        // const hashedPassword = await bcrypt.hash(formData.password, 10);
+      // const hashedPassword = await bcrypt.hash(formData.password, 10);
 
-        const userDetails = {
-          username: formData.username,
-          password: formData.password,
-        };
+      const userDetails = {
+        username: formData.username,
+        password: formData.password,
+      };
 
-        console.log(userDetails);
-  
-      const response = await axios.post("http://localhost:3000/users/login", userDetails);
-  
+      console.log(userDetails);
+
+      const response = await axios.post(
+        "http://localhost:3000/users/login",
+        userDetails
+      );
+
+      // if (isLoggedIn) {
+      //   <Link to="/dashboard" />;
+      // }
+      submitClick ? setSubmitClick(false) : setSubmitClick(true);
+      console.log(`test ${isLoggedIn}`);
+
       console.log(response.data);
-  
+
       reset({
         userName: "",
         userEmail: "",
       });
-  
     } catch (err) {
       if (err.response) {
         // Server responded with a non-2xx status code
@@ -55,10 +64,12 @@ const Login = () => {
       } else {
         // Handle other types of errors
         console.error("Error:", err.message);
-        setErrorMessage("An unexpected error occurred. Please try again later.");
+        setErrorMessage(
+          "An unexpected error occurred. Please try again later."
+        );
       }
     }
-  };  
+  };
 
   return (
     <div className="form-container">
@@ -76,9 +87,7 @@ const Login = () => {
               id="username"
               placeholder="Enter the username"
             />
-            <div className="error-message">
-              {errors?.username?.message}
-            </div>
+            <div className="error-message">{errors?.username?.message}</div>
           </div>
 
           <div className="form-group">
@@ -92,9 +101,7 @@ const Login = () => {
               id="password"
               placeholder="Enter the password"
             />
-            <div className="error-message">
-              {errors?.password?.message}
-            </div>
+            <div className="error-message">{errors?.password?.message}</div>
           </div>
 
           <div className="submit-button-container">
@@ -110,11 +117,7 @@ const Login = () => {
             ))}
           </div>
         )}
-        {errorMessage && (
-          <div className="error-message">
-            {errorMessage}
-          </div>
-        )}
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
     </div>
   );
