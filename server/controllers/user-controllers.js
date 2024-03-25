@@ -1,5 +1,10 @@
 import { UserModel } from "../models/models.js";
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+
+const admin_username = process.env.ADMIN_USERNAME;
+const admin_password = process.env.ADMIN_PASSWORD;
+const secretKey = process.env.JWT_SECRET;
 
 export async function addUserController(req, res) {
   const newUser = req.body;
@@ -20,33 +25,41 @@ export async function getAllUsers(req, res) {
   }
 }
 
-const secretKey = process.env.JWT_SECRET
-const exampleToken = {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWZlZTczMThlMGM0MzVkYjM4YmRiMzQiLCJpYXQiOjE3MTEyMTEwNjR9.xX-3lNnVY4Gbcyd1vS4cyqS1PmASIrnJZ_sNzHn_2_0"
-}           // this token was generated when I logged in
-
 export async function loginUser(req, res) {
   try {
-    const { name, email, password } = req.body;
-    // Check if the user exists
-    const user = await UserModel.findOne({ name });
-    if (!user) {
-      return res.status(401).json({ error: "Invalid username" });
-    }
-    // Validate the password
-    const isPasswordValid = await user.comparePassword(password);
-    if (!isPasswordValid) {
-      return res.status(401).json({ error: "Invalid password" });
-    }
-    // Generate a JWT token
-    const token = jwt.sign({ userId: user._id }, secretKey);  // need to replace secretKey with actual secret key
+    const { username, password } = req.body;
 
-    res.status(200).json({ token });
-  } catch (error) {
-    console.error("Error logging in:", error);
+    console.log(username, password);
+
+    const isPasswordValid = await bcrypt.compare(password, admin_password);
+    if (isPasswordValid) {
+      // Generate a JWT token
+      const token = jwt.sign({ username: admin_username }, secretKey);
+      return res.status(200).json({ token });
+    } else {
+      return res.status(401).json({ error: "Invalid pasword" });
+    }
+  }
+  catch (error) {
     res.status(500).json({ error: "An error occurred while logging in" });
   }
-}
+
+//     if (username === admin_username) {
+//       const isPasswordValid = await bcrypt.compare(password, admin_password);
+//       if (isPasswordValid) {
+//         // Generate a JWT token
+//         const token = jwt.sign({ username: admin_username }, secretKey);
+//         return res.status(200).json({ token });
+//       } else {
+//         return res.status(401).json({ error: "Invalid password" });
+//       }
+//     } else {
+//       return res.status(401).json({ error: "Invalid username" });
+//     }
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occurred while logging in" });
+//   }
+};
 
 // Authentication middleware
 export function authenticateUser(req, res, next) {
@@ -54,18 +67,17 @@ export function authenticateUser(req, res, next) {
     const token = req.headers.authorization.split(" ")[1];
 
     // Verify the token
-    const decodedToken = jwt.verify(token, secretKey);   // need to replace secretkey
+    const decodedToken = jwt.verify(token, secretKey);
 
-    // Attach the user ID to the request object
-    req.userId = decodedToken.userId;
+    // Attach the username to the request object
+    req.username = decodedToken.username;
 
     next();
   } catch (error) {
     console.error("Error authenticating user:", error);
     res.status(401).json({ error: "Unauthorized" });
   }
-};
-
+}
 
 // Authorization middleware
 export const authoriseUser = (requiredRole) => async (req, res, next) => {

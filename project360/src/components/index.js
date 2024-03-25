@@ -7,7 +7,6 @@ import ThreeVideosRow from './landing-page/ThreeVideosRow'
 import AreYouInterestedButton from './landing-page/AreYouInterestedButton'
 import EmailCollectionPopUpForm from './landing-page/EmailCollectionPopUpForm'
 import SecretLoginButton from './landing-page/SecretLoginButton'
-import LoginForm from './landing-page/LoginForm'
 
 export {
     BackgroundVideo,
@@ -19,5 +18,4 @@ export {
     AreYouInterestedButton,
     EmailCollectionPopUpForm,
     SecretLoginButton,
-    LoginForm
     }
