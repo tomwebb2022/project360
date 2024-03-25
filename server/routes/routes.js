@@ -11,9 +11,10 @@ emailRouter.get('/', controllers.getAllEmails)
 userRouter.post('/', userControllers.addUserController); // the route where a new user is added to the list of users
 userRouter.get('/', userControllers.getAllUsers)
 userRouter.post('/login', userControllers.loginUser) // the route where a registered user logs in
+userRouter.delete('/:username', userControllers.deleteUser) // the route where a user is deleted
 
 userRouter.get(
-    '/api/authenticate',
+    '/authentication',
     userControllers.authenticateUser, // Authenticate user
     // userControllers.authoriseUser('admin'), // Authorise user (requires 'admin' role)
     (req, res) => {

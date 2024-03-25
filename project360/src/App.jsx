@@ -43,7 +43,7 @@ function App() {
     async function checkAuthentication() {
       try {
         // Retrieve token from the server
-        const response = await axios.get("/users/api/authenticate");
+        const response = await axios.get("/users/authentication");
         const token = response.data.token;
         if (token) {
           setIsLoggedIn(true);

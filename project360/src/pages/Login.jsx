@@ -40,7 +40,7 @@ const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
       //   <Link to="/dashboard" />;
       // }
       submitClick ? setSubmitClick(false) : setSubmitClick(true);
-      console.log(`test ${isLoggedIn}`);
+      console.log(`test ${submitClick}`);
 
       console.log(response.data);
 

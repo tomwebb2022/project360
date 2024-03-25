@@ -35,15 +35,39 @@ export async function loginUser(req, res) {
   }
 }
 
+
+export async function deleteUser(req, res) {
+  const { username } = req.params;
+  try {
+    const userData = await UserModel.findOneAndDelete({ username: username });
+    if (!userData) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "An error occurred while deleting the user" });
+  }
+}
+
+
 export async function addUserController(req, res) {
   const newUser = req.body;
+  
   try {
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(newUser.password, 10); // You can adjust the salt rounds as needed
+  
+    // Replace the plain text password with the hashed password
+    newUser.password = hashedPassword;
+    
     const userData = await UserModel.create(newUser);
     res.status(201).json({ status: "success", data: userData });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }
 }
+
+
 
 export async function getAllUsers(req, res) {
   try {
