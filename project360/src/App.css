@@ -9,6 +9,10 @@
   margin: 0 auto;
   padding-top: 0;
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 /* .background-image {

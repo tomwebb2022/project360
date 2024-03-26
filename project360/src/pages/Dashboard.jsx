@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "./Dashboard.css";
 
 const Dashboard = ({logout}) => {
   const [emailList, setEmailList] = useState([]);
@@ -25,22 +27,42 @@ const Dashboard = ({logout}) => {
     
   }, []);
 
+  // async function getUserName() {
+  //   try {
+  //     const userData = await axios.get("http://localhost:3000/users");
+  //     // find the user with the token in local storage
+  //     const thisUser = userData.data.find(user => user.token === localStorage.getItem("token"));
+  //     console.log(userData.data);
+  //     return thisUser.name;
+  //   }
+  //   catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  console.log(localStorage.getItem("name"));
 
   return (
-    <div>
-      {emailList.map((email, index) => {
-        return (
-          <div key={index}>
-            <p>{email.name}</p>
-            <p>{email.email}</p>
-          </div>
-        );
-      })}
-      <button onClick={logout}>Logout</button>
-    </div>
+    <div className="dashboard-container">
+    <h1>Welcome, {localStorage.getItem("name")}</h1>
+    <Link to="/">
+    <button className="submit-button">Back to Home</button>
+    </Link>
+    <button className="logout-button" onClick={logout}>
+      Logout
+    </button>
+
+    <p>Expand subscribers' email list</p>
+    {emailList.map((email, index) => {
+      return (
+        <div className="email-item" key={index}>
+          <p>{email.name}</p>
+          <p>{email.email}</p>
+        </div>
+      );
+    })}
+  </div>
   );
 };
-
-
 
 export default Dashboard;
