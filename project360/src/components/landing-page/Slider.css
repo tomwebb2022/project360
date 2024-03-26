@@ -1,0 +1,26 @@
+.slider-container {
+    position: absolute;
+    bottom: 1.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+  }
+  
+  .camera-lens-container {
+    width: 35px;
+    height: 75px;
+    border-radius: 30px;
+    border-width: 4px;
+    border-color: black;
+  }
+  
+  .camera-lens {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
