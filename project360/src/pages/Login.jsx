@@ -4,8 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Login = ({ updateClick }) => {
+  // Component code here
+};
+
+Login.propTypes = {
+  updateClick: PropTypes.func.isRequired,
+};
+
   const schema = z.object({
     username: z.string().nonempty({ message: "Username is required" }),
     password: z.string().nonempty({ message: "Password is required" }),
