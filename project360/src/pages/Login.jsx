@@ -41,12 +41,7 @@ Login.propTypes = {
         userDetails
       );
       console.log("login response", response.data);
-      // localStorage.setItem("token", response.data.token);
-      // const token = localStorage.getItem("token");
-      // console.log("token", token);
-      // if (isLoggedIn) {
-      //   <Link to="/dashboard" />;
-      // }
+     
       //            new!!! 26th mar !!!!!
       updateClick();
       console.log(response.data);
