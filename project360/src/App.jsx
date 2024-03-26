@@ -46,31 +46,22 @@ function App() {
     // Check user's authentication status when the component mounts
     async function checkAuthentication() {
       try {
-        // Retrieve token from the server
+        // Retrieve authentication status from the server
         const response = await axios.get("/users/authentication");
-        console.log("response", response.data);
-        const token = response.data.token;
-        if (token) {
-          setIsLoggedIn(true);
-        }
-        // Get the token from local storage
-        const localStorageToken = localStorage.getItem("token");
-        // Compare the tokens
-        if (token === localStorageToken) {
-          console.log("Tokens match");
-        } else {
-          console.log("Tokens do not match");
-        }
+        const isAuthenticated = response.data
+        console.log("Response data:", isAuthenticated);
+        // Set isLoggedIn based on the authentication status
+        setIsLoggedIn(isAuthenticated);
       } catch (error) {
         console.error("Error authenticating user:", error);
-        // setIsLoggedIn(false);
+        // Set isLoggedIn to false in case of error
+        setIsLoggedIn(false);
       }
     }
-
+  
     checkAuthentication();
-    console.log(isLoggedIn);
-  }, [submitClick]);
-
+  }, [updateClick]);
+  console.log("isLoggedIn", isLoggedIn);
   return (
     <Router>
       <Routes>
@@ -90,15 +81,15 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route
           path="/dashboard"
-          element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Dashboard updateClick={updateClick} /> : <Navigate to="/login" />}
         />
         <Route
           path="/login"
           // isLoggedIn={isLoggedIn}
           // submitClick={submitClick}
           // setSubmitClick={setSubmitClick}
-          updateClick={updateClick}
-          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />}
+          
+          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login updateClick={updateClick} />}
         />
       </Routes>
       <Footer

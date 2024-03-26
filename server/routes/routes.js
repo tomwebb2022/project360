@@ -14,14 +14,20 @@ userRouter.post('/login', userControllers.loginUser) // the route where a regist
 userRouter.delete('/:username', userControllers.deleteUser) // the route where a user is deleted
 
 userRouter.get(
-    '/authentication',
-    userControllers.authenticateUser, // Authenticate user
-    // userControllers.authoriseUser('admin'), // Authorise user (requires 'admin' role)
-    (req, res) => {
-      // Route handler logic for /api/authenticate
-      res.status(200).json({ message: 'Authenticated and authorised successfully' });
+  '/authentication',
+  (req, res, next) => {
+    // Check authentication
+    const isAuthenticated = userControllers.authenticateUser(req, res, next);
+
+    if (isAuthenticated) {
+      // Authentication succeeded, handle accordingly
+      res.status(200).json({ message: 'Authenticated successfully' });
+    } else {
+      // Authentication failed, handle accordingly
+      res.status(401).json({ error: 'Authentication failed' });
     }
-  );
+  }
+);
 
 
 export { emailRouter };

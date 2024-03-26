@@ -79,8 +79,7 @@ export async function getAllUsers(req, res) {
 }
 
 
-
-// Authentication middleware
+// Authenticate user
 export function authenticateUser(req, res, next) {
   try {
     const token = req.headers.authorization.split(" ")[1];
@@ -88,13 +87,13 @@ export function authenticateUser(req, res, next) {
     // Verify the token
     const decodedToken = jwt.verify(token, secretKey);
 
-    // Attach the username to the request object
-    req.username = decodedToken.username;
-
-    next();
+    // Authentication successful, send response with status 200 and authenticated: true
+    res.status(200).json({ authenticated: true });
   } catch (error) {
     console.error("Error authenticating user:", error);
-    res.status(401).json({ error: "Unauthorized" });
+
+    // Authentication failed, send response with status 401 and authenticated: false
+    res.status(401).json({ authenticated: false });
   }
 }
 
