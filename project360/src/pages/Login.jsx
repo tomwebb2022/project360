@@ -5,7 +5,7 @@ import { z } from "zod";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
+const Login = ({ updateClick }) => {
   const schema = z.object({
     username: z.string().nonempty({ message: "Username is required" }),
     password: z.string().nonempty({ message: "Password is required" }),
@@ -21,8 +21,6 @@ const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
 
   const onSubmit = async (formData) => {
     try {
-      
-
       const userDetails = {
         username: formData.username,
         password: formData.password,
@@ -41,9 +39,8 @@ const Login = ({ isLoggedIn, submitClick, setSubmitClick }) => {
       // if (isLoggedIn) {
       //   <Link to="/dashboard" />;
       // }
-      submitClick ? setSubmitClick(false) : setSubmitClick(true);
-      console.log(`test ${submitClick}`);
-
+      //            new!!! 26th mar !!!!!
+      updateClick();
       console.log(response.data);
 
       reset({

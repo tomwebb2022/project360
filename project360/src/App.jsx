@@ -15,6 +15,10 @@ function App() {
   const [formOpen, setFormOpen] = useState(false);
   const [submitClick, setSubmitClick] = useState(false);
 
+  const updateClick = () => {
+    submitClick ? setSubmitClick(false) : setSubmitClick(true);
+  };
+
   const toggleForm = () => {
     setFormOpen(!formOpen);
   };
@@ -44,7 +48,7 @@ function App() {
       try {
         // Retrieve token from the server
         const response = await axios.get("/users/authentication");
-        console.log("response",response.data);
+        console.log("response", response.data);
         const token = response.data.token;
         if (token) {
           setIsLoggedIn(true);
@@ -90,9 +94,10 @@ function App() {
         />
         <Route
           path="/login"
-          isLoggedIn={isLoggedIn}
-          submitClick={submitClick}
-          setSubmitClick={setSubmitClick}
+          // isLoggedIn={isLoggedIn}
+          // submitClick={submitClick}
+          // setSubmitClick={setSubmitClick}
+          updateClick={updateClick}
           element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />}
         />
       </Routes>
