@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 const Login = ({ updateClick }) => {
   // Component code here
-};
+
 
 Login.propTypes = {
   updateClick: PropTypes.func.isRequired,
