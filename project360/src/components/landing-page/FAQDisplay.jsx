@@ -1,4 +1,5 @@
 import { FAQ } from "../../data/FAQ";
+import "./FAQ.css";
 
 const FAQDisplay = () => {
   return (
