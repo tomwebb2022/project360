@@ -6,18 +6,22 @@ import {
 } from "react-router-dom";
 import { LandingPage, Gallery, Dashboard, Login } from "./pages/index";
 import Footer from "./components/common/footer/Footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { emailList } from "./data/emails";
 import axios from "axios";
 import "./App.css";
+// import { set } from "mongoose";
 
 function App() {
   const [formOpen, setFormOpen] = useState(false);
   const [submitClick, setSubmitClick] = useState(false);
 
-  const updateClick = () => {
+
+  const updateClick = useCallback(() => {
     submitClick ? setSubmitClick(false) : setSubmitClick(true);
-  };
+  }, [submitClick]);
+
+
 
   const toggleForm = () => {
     setFormOpen(!formOpen);
@@ -41,6 +45,11 @@ function App() {
       accessibilityOpen: false,
     });
   };
+
+  function logout() {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+  }
 
   useEffect(() => {
     // Check user's authentication status when the component mounts
@@ -81,7 +90,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route
           path="/dashboard"
-          element={isLoggedIn ? <Dashboard updateClick={updateClick} /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Dashboard logout={logout} /> : <Navigate to="/login" />}
         />
         <Route
           path="/login"

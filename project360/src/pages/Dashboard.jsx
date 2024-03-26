@@ -1,8 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-const Dashboard = () => {
+const Dashboard = ({logout}) => {
   const [emailList, setEmailList] = useState([]);
+
+  Dashboard.propTypes = {
+    logout: PropTypes.func.isRequired,
+  };
 
   useEffect(() => {
     async function getEmails() {
@@ -20,6 +25,7 @@ const Dashboard = () => {
     
   }, []);
 
+
   return (
     <div>
       {emailList.map((email, index) => {
@@ -30,6 +36,7 @@ const Dashboard = () => {
           </div>
         );
       })}
+      <button onClick={logout}>Logout</button>
     </div>
   );
 };
