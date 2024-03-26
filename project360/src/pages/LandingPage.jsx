@@ -5,11 +5,12 @@ import {
   CalendlyWidget,
   FAQDisplay,
   ThreeVideosRow,
+  SecretLoginButton,
   AreYouInterestedButton
 } from "../components";
 import "./LandingPage.css";
 
-const LandingPage = ({ formOpen, setFormOpen, closeForm, emails, updateEmails }) => {
+const LandingPage = ({ formOpen, setFormOpen, closeForm, emails, updateEmails, isLoggedIn, setIsLoggedIn }) => {
   return (
     <>
       <BackgroundVideo />
@@ -23,6 +24,8 @@ const LandingPage = ({ formOpen, setFormOpen, closeForm, emails, updateEmails })
       <CalendlyWidget />
 
       <FAQDisplay />
+
+      <SecretLoginButton />
 
       <AreYouInterestedButton formOpen={formOpen} setFormOpen={setFormOpen} emails={emails} updateEmails={updateEmails} />
     

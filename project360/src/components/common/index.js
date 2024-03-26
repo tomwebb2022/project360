@@ -1,7 +1,7 @@
-import Footer from './Footer';
-import PrivacyPopup from './PrivacyPopup';
-import TeamPopup from './TeamPopup';
-import AccessibilityPopup from './AccessibilityPopup';
+import Footer from './footer/Footer';
+import PrivacyPopup from './footer/PrivacyPopup';
+import TeamPopup from './footer/TeamPopup';
+import AccessibilityPopup from './footer/AccessibilityPopup';
 
 export {
     Footer,

@@ -1,11 +1,12 @@
-import BackgroundVideo from './BackgroundVideo'
-import WhatIs from './WhatIs'
-import ImpactStatement from './ImpactStatement'
-import CalendlyWidget from './CalendlyWidget'
-import FAQDisplay from './FAQDisplay'
-import ThreeVideosRow from './ThreeVideosRow'
-import AreYouInterestedButton from './AreYouInterestedButton'
-import EmailCollectionPopUpForm from './EmailCollectionPopUpForm'
+import BackgroundVideo from './landing-page/BackgroundVideo'
+import WhatIs from './landing-page/WhatIs'
+import ImpactStatement from './landing-page/ImpactStatement'
+import CalendlyWidget from './landing-page/CalendlyWidget'
+import FAQDisplay from './landing-page/FAQDisplay'
+import ThreeVideosRow from './landing-page/ThreeVideosRow'
+import AreYouInterestedButton from './landing-page/AreYouInterestedButton'
+import EmailCollectionPopUpForm from './landing-page/EmailCollectionPopUpForm'
+import SecretLoginButton from './landing-page/SecretLoginButton'
 
 export {
     BackgroundVideo,
@@ -15,5 +16,6 @@ export {
     FAQDisplay,
     ThreeVideosRow,
     AreYouInterestedButton,
-    EmailCollectionPopUpForm
+    EmailCollectionPopUpForm,
+    SecretLoginButton,
     }
