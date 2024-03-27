@@ -29,8 +29,15 @@
   .video {
     max-width: 130px;
   }
-}
 
+}
+@media (max-width: 391px) {
+  .three-videos-container .video {
+    max-width: calc(33.33% - 1px); /* added gap either side  */
+  }
+
+
+}
 .simple-section-container {
   display: flex;
   flex-direction: column;
