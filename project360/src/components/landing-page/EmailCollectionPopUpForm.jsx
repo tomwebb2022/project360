@@ -11,6 +11,8 @@ const EmailCollectionPopUpForm = ({
   onClose,
   emails,
   updateEmails,
+  formSubmitted,
+  setFormSubmitted,
 }) => {
   const closeIcon = (
     <svg fill="#000000" viewBox="0 0 20 20" width={28} height={28}>
@@ -53,12 +55,23 @@ const EmailCollectionPopUpForm = ({
         userEmail: "",
       });
   
-      onClose();
+      setFormSubmitted(true);
+
     } catch (err) {
-      console.error(err.message);
+      // Check if the error is due to email already existing
+      if (err.response && err.response.status === 409) {
+        // If it's a conflict (email already exists), treat it as a successful submission
+        console.log("Email already exists, treating as successful submission.");
+        reset({
+          userName: "",
+          userEmail: "",
+        });
+        setFormSubmitted(true);
+      } else {
+        console.error(err.message);
+      }
     }
-  };
-  
+  }  
 
   return (
     <Modal
@@ -75,6 +88,9 @@ const EmailCollectionPopUpForm = ({
       }}
     >
       <div className="form-container">
+
+      {!formSubmitted ? (
+
         <div className="form-content">
             <h2>If you&apos;re interested in this project, please subscribe to our newsletter!</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -106,7 +122,7 @@ const EmailCollectionPopUpForm = ({
                 placeholder="Enter your email"
               />
               <div className="error-message">
-                {errors?.creatorEmail?.message}
+                {errors?.userEmail?.message}
               </div>
             </div>
 
@@ -117,6 +133,20 @@ const EmailCollectionPopUpForm = ({
             </div>
           </form>
         </div>
+      ) : (
+        <div className="form-content">
+          <h2>Thank you for subscribing!</h2>
+          <button
+            className="submit-button"
+            onClick={() => {
+              setFormSubmitted(false);
+              onClose();
+            }}
+          >
+            Close
+          </button>
+        </div>
+      )}
       </div>
     </Modal>
   );

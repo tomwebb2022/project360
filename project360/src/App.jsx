@@ -14,13 +14,12 @@ import "./App.css";
 
 function App() {
   const [formOpen, setFormOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitClick, setSubmitClick] = useState(false);
-
 
   const updateClick = useCallback(() => {
     submitClick ? setSubmitClick(false) : setSubmitClick(true);
   }, [submitClick]);
-
 
 
   const toggleForm = () => {
@@ -49,6 +48,7 @@ function App() {
   function logout() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
+    <Navigate to="/" />;
   }
 
   useEffect(() => {
@@ -81,6 +81,8 @@ function App() {
               toggleForm={toggleForm}
               formOpen={formOpen}
               setFormOpen={setFormOpen}
+              formSubmitted={formSubmitted}
+              setFormSubmitted={setFormSubmitted}
               emails={emails}
               updateEmails={setEmails}
               modalState={setModalState}

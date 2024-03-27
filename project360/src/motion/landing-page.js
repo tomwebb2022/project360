@@ -1,3 +1,18 @@
+export const titleVariant = {
+  initial: {
+    y: -100,
+    opacity: 0,
+  },
+  animate: {
+    y: -20,
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      delay: 0.5,
+    },
+  },
+}
+
 export const cameraLensVariant = {
     initial: {
       y: 100,
@@ -7,7 +22,7 @@ export const cameraLensVariant = {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1.3,
+        duration: 1.5,
         delay: 0.5,
       },
     },

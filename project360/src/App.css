@@ -3,6 +3,9 @@
   --teal: #377987;
   --pink: #ab4063;
   --overlay: rgba(170, 211, 223, 0.8);
+  --title: 'Josefin Sans', sans-serif;
+  --subtitle: 'Open Sans', sans-serif;
+  --body: 'Lato', sans-serif;
 }
 
 #root {
@@ -13,6 +16,7 @@
   overflow-x: hidden;
   align-items: center;
   justify-content: center;
+  font-family: var(--body);
 }
 
 /* .background-image {
@@ -60,10 +64,15 @@
 .text-link {
   cursor: pointer;
   text-decoration: underline;
+  font-weight: 700;
 }
 
 .text-link:hover {
   color: var(--teal);
+}
+
+.text-link:visited {
+  color: gray;
 }
 
 .customOverlay {
@@ -99,5 +108,13 @@
   margin-left: 1rem;
   width: 70%;
   /* border-radius: 4%; */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--body);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 1.5rem;
+  font-style: italic;
+  font-family: var(--title);
 }

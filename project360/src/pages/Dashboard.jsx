@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Dashboard.css";
 
@@ -27,24 +27,12 @@ const Dashboard = ({logout}) => {
     
   }, []);
 
-  // async function getUserName() {
-  //   try {
-  //     const userData = await axios.get("http://localhost:3000/users");
-  //     // find the user with the token in local storage
-  //     const thisUser = userData.data.find(user => user.token === localStorage.getItem("token"));
-  //     console.log(userData.data);
-  //     return thisUser.name;
-  //   }
-  //   catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
+  const name = localStorage.getItem("name");
   console.log(localStorage.getItem("name"));
 
   return (
     <div className="dashboard-container">
-    <h1>Welcome, {localStorage.getItem("name")}</h1>
+    <h1>Welcome, {name}</h1>
     <Link to="/">
     <button className="submit-button">Back to Home</button>
     </Link>

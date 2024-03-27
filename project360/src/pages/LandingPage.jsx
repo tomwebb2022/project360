@@ -14,6 +14,8 @@ import "./LandingPage.css";
 const LandingPage = ({
   formOpen,
   setFormOpen,
+  formSubmitted,
+  setFormSubmitted,
   closeForm,
   emails,
   updateEmails,
@@ -41,6 +43,8 @@ const LandingPage = ({
       <AreYouInterestedButton
         formOpen={formOpen}
         setFormOpen={setFormOpen}
+        formSubmitted={formSubmitted}
+        setFormSubmitted={setFormSubmitted}
         emails={emails}
         updateEmails={updateEmails}
       />
