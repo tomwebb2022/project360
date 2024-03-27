@@ -4,10 +4,10 @@ import { Modal } from 'react-responsive-modal';
 const TeamPopup = ({ isOpen, onClose }) => {
 
   const closeIcon = (
-    <svg fill="#b7572f" viewBox="0 0 20 20" width={28} height={28}>
+    <svg fill="#000" viewBox="0 0 20 20" width={28} height={28}>
       <path
         fillRule="evenodd"
-        d="M4,4 L16,16 M4,16 L16,4" stroke="#b7572f" strokeWidth="3"
+        d="M4,4 L16,16 M4,16 L16,4" stroke="#000" strokeWidth="3"
         clipRule="evenodd"
       ></path>
     </svg>

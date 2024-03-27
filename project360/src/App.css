@@ -3,36 +3,45 @@
   --teal: #377987;
   --pink: #ab4063;
   --overlay: rgba(170, 211, 223, 0.8);
+  --title: 'Josefin Sans', sans-serif;
+  --subtitle: 'Open Sans', sans-serif;
+  --body: 'Lato', sans-serif;
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  /* padding: 0.5rem; */
   padding-top: 0;
-  /* padding-bottom: 2rem; */
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
 }
 
-.background-image {
+/* .background-image {
   position: relative;
-  height: 100vh;
+  margin-top: 0;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
+  object-fit: cover;
 }
+
 .title {
   position: absolute;
-  top: 10%; /* Adjust this value as needed */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   color: white;
-  font-family: sans-serif;
-  font-size: 40px;
-  font-weight: 100;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
   white-space: nowrap;
-  opacity: 0.8;
-}
+  opacity: 0.9;
+  width: 100%;
+} */
 
 .background-image img {
   width: 100%;
@@ -55,15 +64,21 @@
 .text-link {
   cursor: pointer;
   text-decoration: underline;
+  font-weight: 700;
 }
 
 .text-link:hover {
   color: var(--teal);
 }
 
+.text-link:visited {
+  color: gray;
+}
+
 .customOverlay {
   /* background: rgba(36, 123, 160, 0.7); */
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: rgb(211, 211, 211, 0.7);
 }
 
 .customModal {
@@ -76,8 +91,14 @@
 .submit-button {
   margin-top: 1rem;
   height: 2.5rem;
-  background-color: #d7d3ce ;
+  background-color: var(--teal);
+  color: white;
   border-radius: 1.5rem;
+}
+
+.submit-button:hover {
+  background-color: #d7d3ce ;
+  color: black;
 }
 
 .form-control {
@@ -87,5 +108,13 @@
   margin-left: 1rem;
   width: 70%;
   /* border-radius: 4%; */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--body);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 1.5rem;
+  font-style: italic;
+  font-family: var(--title);
 }

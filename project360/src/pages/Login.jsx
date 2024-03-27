@@ -7,10 +7,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Login = ({ updateClick }) => {
-  // Component code here
 
-
-Login.propTypes = {
+  Login.propTypes = {
   updateClick: PropTypes.func.isRequired,
 };
 
@@ -41,8 +39,8 @@ Login.propTypes = {
         userDetails
       );
       console.log("login response", response.data);
-     
-      //            new!!! 26th mar !!!!!
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("name", response.data.name);
       updateClick();
       console.log(response.data);
 
