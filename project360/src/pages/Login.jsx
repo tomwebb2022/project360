@@ -37,7 +37,7 @@ Login.propTypes = {
       console.log(userDetails);
 
       const response = await axios.post(
-        "/users/login",
+        "http://localhost:3000/users/login",
         userDetails
       );
       console.log("login response", response.data);

@@ -12,7 +12,7 @@ const Dashboard = ({logout}) => {
   useEffect(() => {
     async function getEmails() {
       try {
-        const emailData = await axios.get("/emails");
+        const emailData = await axios.get("http://localhost:3000/emails")
         console.log(emailData.data);
 
         setEmailList(emailData.data);

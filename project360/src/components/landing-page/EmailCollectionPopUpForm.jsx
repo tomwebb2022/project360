@@ -45,7 +45,7 @@ const EmailCollectionPopUpForm = ({
       };
   
 
-      const response = await axios.post("/emails", newEmail);
+      const response = await axios.post("http://localhost:3000/emails", newEmail);
 
   
       console.log(response.data);
