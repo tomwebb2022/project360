@@ -13,7 +13,7 @@ export const titleVariant = {
   },
 }
 
-export const cameraLensVariant = {
+export const downArrowVariant = {
     initial: {
       y: 100,
       opacity: 0,

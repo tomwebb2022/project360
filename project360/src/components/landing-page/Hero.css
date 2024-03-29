@@ -51,23 +51,20 @@
     z-index: 1;
   }
   
-  .camera-lens-container {
+  .down-arrow-container {
     position: absolute;
     margin-top: 10px;
     padding-top: 5px;
     width: 26px;
     height: 46px;
-    border-radius: 30px;
-    border-width: 3px;
-    border-color: white;
-    border-style: solid;
+    border: none;
     z-index: 1;
     opacity: 0.8;
   }
   
-  .camera-lens {
-    width: 20px;
-    height: 20px;
+  .down-arrow-shape {
+    width: 30px;
+    height: 30px;
     padding: 1px;
     object-fit: contain;
     z-index: 1;
@@ -86,5 +83,10 @@
     .title {
       font-size: 3rem;
       top: 10%;
+    }
+
+    .down-arrow-shape {
+      width: 20px;
+      height: 20px;
     }
   }
