@@ -59,10 +59,9 @@ const gallerySchema = new Schema({
         default: 'Untitled',
     },
     date: {
-        type: Date,
+        type: String,  //changed type to string instead of date
         required: true,
-        default: Date.now,
-        set: formatDate
+        default: formatDate,
     },
     videoUrl: {
         type: String,

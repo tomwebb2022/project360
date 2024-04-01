@@ -113,7 +113,7 @@ const GalleryUploadForm = ({
               <input
                 {...register("videoName", { required: true })}
                 type="text"
-                className="form-control"
+                className="form-control-d"
                 id="name"
                 placeholder="Untitled Video"
               />
@@ -128,8 +128,8 @@ const GalleryUploadForm = ({
               </label>
               <input
                 {...register("date", { required: true })}
-                type="string"  // could also be date if you want to use a date picker
-                className="form-control"
+                type="string"  // could also be date if you want to use a date picker, but must change model/schema too
+                className="form-control-d"
                 id="date"
                 placeholder="YY-MM-DD"
               />
@@ -145,9 +145,9 @@ const GalleryUploadForm = ({
               <input
                 {...register("videoUrl", { required: true })}
                 type="string" 
-                className="form-control"
+                className="form-control-d"
                 id="videoUrl"
-                placeholder="video play link"
+                placeholder="Video Play Link"
               />
               <div className="error-message">
                 {errors?.videoUrl?.message}
@@ -161,9 +161,9 @@ const GalleryUploadForm = ({
               <input
                 {...register("downloadUrl", { required: true })}
                 type="string"  
-                className="form-control"
+                className="form-control-d"
                 id="downloadUrl"
-                placeholder="download link"
+                placeholder="Download Link"
               />
               <div className="error-message">
                 {errors?.downloadUrl?.message}
@@ -176,8 +176,8 @@ const GalleryUploadForm = ({
               </label>
               <input
                 {...register("author", { required: false })}
-                type="string"  // could also be date if you want to use a date picker
-                className="form-control"
+                type="string" 
+                className="form-control-d"
                 id="author"
                 placeholder="James"
               />
