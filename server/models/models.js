@@ -42,8 +42,45 @@ const userSchema = new Schema({
     },
 });
 
+const gallerySchema = new Schema({
+    videoName: {
+        type: String,
+        required: true,
+        default: 'Untitled',
+    },
+    date: {
+        type: Date,
+        required: true,
+        default: Date.now,
+        set: function(value) {
+            // Convert the date to the desired format
+            const dateObj = new Date(value);
+            const year = dateObj.getFullYear().toString().slice(-2);
+            const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
+            const day = ('0' + dateObj.getDate()).slice(-2);
+            return `${day}-${month}-${year}`;
+        }
+    },
+    videoUrl: {
+        type: String,
+        required: true,
+    },
+    downloadUrl: {
+        type: String,
+        required: true,
+        default: function() {
+            return this.videoUrl; // Set downloadUrl default value equal to videoUrl
+        }
+    },
+    author: {
+        type: String,
+        default: "James"
+    }
+});
+
 
 
 export const EmailModel = model('emails', emailSchema);
 export const UserModel = model('users', userSchema);
+export const GalleryModel = model('gallery', gallerySchema);
 
