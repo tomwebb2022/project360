@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Dashboard.css";
 
+
 const Dashboard = ({logout}) => {
   const [emailList, setEmailList] = useState([]);
 
@@ -49,6 +50,7 @@ const Dashboard = ({logout}) => {
         </div>
       );
     })}
+    <GalleryUploadForm />
   </div>
   );
 };
