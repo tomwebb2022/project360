@@ -128,13 +128,61 @@ const GalleryUploadForm = ({
               </label>
               <input
                 {...register("date", { required: true })}
-                type="date"
+                type="string"  // could also be date if you want to use a date picker
                 className="form-control"
                 id="date"
                 placeholder="YY-MM-DD"
               />
               <div className="error-message">
                 {errors?.date?.message}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="videoUrl" className="form-label">
+                Video Url
+              </label>
+              <input
+                {...register("videoUrl", { required: true })}
+                type="string" 
+                className="form-control"
+                id="videoUrl"
+                placeholder="video play link"
+              />
+              <div className="error-message">
+                {errors?.videoUrl?.message}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="downloadUrl" className="form-label">
+                Download Url
+              </label>
+              <input
+                {...register("downloadUrl", { required: true })}
+                type="string"  
+                className="form-control"
+                id="downloadUrl"
+                placeholder="download link"
+              />
+              <div className="error-message">
+                {errors?.downloadUrl?.message}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="author" className="form-label">
+                Author
+              </label>
+              <input
+                {...register("author", { required: false })}
+                type="string"  // could also be date if you want to use a date picker
+                className="form-control"
+                id="author"
+                placeholder="James"
+              />
+              <div className="error-message">
+                {errors?.author?.message}
               </div>
             </div>
 
@@ -147,7 +195,7 @@ const GalleryUploadForm = ({
         </div>
       ) : (
         <div className="form-content">
-          <h2>Thank you for subscribing!</h2>
+          <h2>Video Uploaded</h2>
           <button
             className="submit-button"
             onClick={() => {

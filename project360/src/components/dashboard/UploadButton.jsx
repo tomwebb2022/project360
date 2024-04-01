@@ -1,4 +1,4 @@
-import GalleryUploadForm from "../components/dashboard/GalleryUploadForm";
+import GalleryUploadForm from "./GalleryUploadForm";
 
 const UploadButton = ({
   formOpen,
@@ -13,7 +13,7 @@ const UploadButton = ({
   return (
     <div className="interested-button-container">
       <div className="text-link" onClick={toggleForm}>
-        <p className="text-link">Upload a Video</p>
+        <button className="submit-button">Upload a Video</button>
       </div>
 
       <GalleryUploadForm
