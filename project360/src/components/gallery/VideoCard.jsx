@@ -13,7 +13,7 @@ VideoCard.propTypes = {
 export default function VideoCard(props) {
     
   
-    const { videoName, date, videoUrl, downloadUrl, id } = props;
+    const { videoName, date, videoUrl, downloadUrl } = props;
     
     return (
         <div className="gallery-card">

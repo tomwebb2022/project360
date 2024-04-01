@@ -1,5 +1,4 @@
 import { exampleBanner } from "../../assets";
-
 import { motion } from "framer-motion";
 import { titleVariant } from "../../motion/landing-page";
 import "../landing-page/Hero.css";
