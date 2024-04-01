@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { emailRouter } from "./routes/routes.js";
 import { userRouter } from "./routes/routes.js";
+import { galleryRouter } from "./routes/routes.js";
 dotenv.config();
 
 const app = express();

@@ -5,6 +5,7 @@ import * as galleryControllers from "../controllers/gallery-controllers.js"
 
 const emailRouter = express.Router();
 const userRouter = express.Router();
+const galleryRouter = express.Router();
 
 emailRouter.post('/', controllers.addEmailController); // the route where a new email is added to the list of emails
 emailRouter.get('/', controllers.getAllEmails)
@@ -31,7 +32,7 @@ userRouter.get(
 );
 
 galleryRouter.post('/', galleryControllers.addGalleryVideo); // the route where a new video is added to the gallery
-galleryRouter
+galleryRouter.get('/', galleryControllers.getAllVideos) // the route where all videos are fetched 
 
 export { emailRouter };
 export { userRouter };

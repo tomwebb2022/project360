@@ -42,6 +42,16 @@ const userSchema = new Schema({
     },
 });
 
+
+function formatDate(value) {
+    // Convert the date to the desired format
+    const dateObj = new Date(value);
+    const year = dateObj.getFullYear().toString().slice(-2);
+    const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
+    const day = ('0' + dateObj.getDate()).slice(-2);
+    return `${day}-${month}-${year}`;
+}
+
 const gallerySchema = new Schema({
     videoName: {
         type: String,
@@ -52,14 +62,7 @@ const gallerySchema = new Schema({
         type: Date,
         required: true,
         default: Date.now,
-        set: function(value) {
-            // Convert the date to the desired format
-            const dateObj = new Date(value);
-            const year = dateObj.getFullYear().toString().slice(-2);
-            const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
-            const day = ('0' + dateObj.getDate()).slice(-2);
-            return `${day}-${month}-${year}`;
-        }
+        set: formatDate
     },
     videoUrl: {
         type: String,
