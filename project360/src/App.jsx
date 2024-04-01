@@ -92,7 +92,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route
           path="/dashboard"
-          element={isLoggedIn ? <Dashboard logout={logout} /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Dashboard logout={logout} /> : <Navigate to="/" />}
         />
         <Route
           path="/login"
