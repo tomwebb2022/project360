@@ -1,0 +1,11 @@
+.card-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.gallery-card {
+    border: red 1px solid;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
