@@ -1,6 +1,7 @@
 import express from 'express';
 import * as controllers from "../controllers/email-controllers.js";
 import * as userControllers from "../controllers/user-controllers.js"
+import * as galleryControllers from "../controllers/gallery-controllers.js"
 
 const emailRouter = express.Router();
 const userRouter = express.Router();
@@ -29,6 +30,9 @@ userRouter.get(
   }
 );
 
+galleryRouter.post('/', galleryControllers.addGalleryVideo); // the route where a new video is added to the gallery
+galleryRouter
 
 export { emailRouter };
 export { userRouter };
+export { galleryRouter };
