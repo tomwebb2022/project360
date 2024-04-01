@@ -5,8 +5,6 @@ const UploadButton = ({
   setFormOpen,
   formSubmitted,
   setFormSubmitted,
-  emails,
-  updateEmails,
 }) => {
   const toggleForm = () => {
     setFormOpen(!formOpen);
@@ -15,7 +13,7 @@ const UploadButton = ({
   return (
     <div className="interested-button-container">
       <div className="text-link" onClick={toggleForm}>
-        <p className="text-link">Are you interested?</p>
+        <p className="text-link">Upload a Video</p>
       </div>
 
       <GalleryUploadForm
@@ -28,4 +26,4 @@ const UploadButton = ({
   );
 };
 
-export default AreYouInterestedButton;
+export default UploadButton;
