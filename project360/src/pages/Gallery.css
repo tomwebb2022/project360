@@ -8,10 +8,10 @@
     display: grid;
     position: relative;
     margin-bottom: 10rem;
-    margin-top: 4rem;
+    margin-top: 6rem;
     grid-template-columns: repeat(4, minmax(0, 1fr)); 
     /* border: blue 1px solid; */
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 
@@ -39,9 +39,10 @@
 }
 
 .galleryVid {
-    /* border: green 1px solid; */
-    width: 480px;
-    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* background-color: burlywood; */
+    padding: 0;
     border: none;
 
 }
@@ -58,9 +59,3 @@ a , p {
     grid-column: 1 / -1;
 }
 
-/* .background-image-gallery video {
-    width: 100%;
-    height: 10%;
-    object-fit: cover;
-    object-position: center;
-  } */

@@ -18,7 +18,7 @@ export default function VideoCard(props) {
     return (
         <div className="gallery-card">
             <div onClick={() => window.open(downloadUrl, '_blank')} className="galleryVidWrapper">
-            <iframe className="galleryVid" src={videoUrl} width="30%" height="100%" ></iframe>
+            <iframe className="galleryVid" src={videoUrl} width="100%" height="100%" ></iframe>
             </div>
             <a href={downloadUrl} target="_blank" ><p>{date} {videoName}</p></a>
             

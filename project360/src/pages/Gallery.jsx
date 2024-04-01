@@ -24,12 +24,17 @@ const Gallery = () => {
     getVideos();
     
   }, []);
+  console.log(videoData);
   
   return (
     <div className="gallery-page">
+      <div className="hero-container">
       <HeroGallery />
-      <h1 className="gallery-title">Gallery</h1>
+      </div>
       <div className="card-gallery">
+       {dummyData.map((data) => (
+         <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+       ))}
        {dummyData.map((data) => (
          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
        ))}

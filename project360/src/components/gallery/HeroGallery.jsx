@@ -14,7 +14,7 @@ const HeroGallery = () => {
             animate="animate"
             className="title"
           >
-            ATEDO 360
+            ATEDO 360 GALLERY
           </motion.h1>
 
           <img
