@@ -1,74 +1,93 @@
 .gallery-page {
-    background-color: #fcfbf7;
-    box-sizing: border-box;
-    border: transparent 1px solid;
+  background-color: #fcfbf7;
+  box-sizing: border-box;
+  border: transparent 1px solid;
 }
 
 .card-gallery {
-    display: grid;
-    position: relative;
-    margin-bottom: 10rem;
-    margin-top: 6rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); 
-    /* border: blue 1px solid; */
-    gap: 0.5rem;
+  display: grid;
+  position: relative;
+  margin-bottom: 10rem;
+  margin-top: 6rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* border: blue 1px solid; */
+  gap: 0.5rem;
 }
 
-
 @media (max-width: 768px) {
-    .card-gallery {
-        grid-template-columns: repeat(3, minmax(0, 1fr)); 
-    }
+  .card-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 550px) {
-    .card-gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr)); 
-    }
+  .card-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .gallery-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: red 1px solid; */
-    width: 480px;
-    max-width: 100%;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: red 1px solid; */
+  width: 480px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .galleryVid {
-    width: 100%;
-    object-fit: cover;
-    /* background-color: burlywood; */
-    padding: 0;
-    border: none;
-
+  width: 100%;
+  object-fit: cover;
+  /* background-color: burlywood; */
+  padding: 0;
+  border: none;
 }
 
-a , p {
-    color: black
+a,
+p {
+  color: black;
 }
 
 .submit-button {
-    justify-self: center;
+  justify-self: center;
 }
 
 .link-container {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    height: 4rem;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    /* border: red 1px solid; */
+}
+.navbar {
+  display: flex;
+  font-weight: 700;
+  font-size: 0.6rem;
+  margin-bottom: 3rem;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  width: 100%;
+  /* position: fixed; */
+  top: 0;
+  height: 5rem;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  /* border: red 1px solid; */
+}
+
+/* brand {
+  margin-left: 10rem;
+  border: red 1px solid;
+} */
+
+.page-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  /* border: red 1px solid; */
 }

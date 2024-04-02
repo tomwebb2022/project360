@@ -27,23 +27,22 @@ const Gallery = () => {
   
   return (
     <div className="gallery-page">
-      <Navbar />
-      {/* <div className="hero-container">
-      <HeroGallery />
-      </div> */}
-      <h1>Gallery</h1>
+      <div className="navbar-container">
+        <Navbar />
+      </div>  
+      <div className="page-title"><h1>Gallery</h1></div>
       <div className="card-gallery">
-       {videoData.map((data) => (
-         <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
-       ))}
-       {videoData.map((data) => (
-         <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
-       ))}
-       {videoData.map((data) => (
-         <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
-       ))}
+        {videoData.map((data) => (
+          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+        ))}
+        {videoData.map((data) => (
+          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+        ))}
+        {videoData.map((data) => (
+          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+        ))}
         <div className="link-container">
-          <Link to="/">
+          <Link to="/gallery">
           <button className="submit-button">Next Page</button>
           </Link>
         </div>
