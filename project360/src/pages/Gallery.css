@@ -59,3 +59,16 @@ a , p {
     grid-column: 1 / -1;
 }
 
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 4rem;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    /* border: red 1px solid; */
+}

@@ -61,7 +61,8 @@ const gallerySchema = new Schema({
     date: {
         type: String,  //changed type to string instead of date
         required: true,
-        default: formatDate,
+        default: Date.now(),
+        set: formatDate
     },
     videoUrl: {
         type: String,

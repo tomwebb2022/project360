@@ -1,6 +1,7 @@
 import VideoCard from "../components/gallery/VideoCard"
 import { Link } from "react-router-dom"
 import HeroGallery  from "../components/gallery/HeroGallery"
+import Navbar from "../components/gallery/Navbar"
 import dummyData from "../data/dummyData"
 import axios from "axios"
 import { useEffect, useState } from "react"
@@ -22,15 +23,17 @@ const Gallery = () => {
     }
 
     getVideos();
+    console.log(videoData);
     
   }, []);
-  console.log(videoData);
   
   return (
     <div className="gallery-page">
-      <div className="hero-container">
+      <Navbar />
+      {/* <div className="hero-container">
       <HeroGallery />
-      </div>
+      </div> */}
+      <h1>Gallery</h1>
       <div className="card-gallery">
        {dummyData.map((data) => (
          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
@@ -43,7 +46,7 @@ const Gallery = () => {
        ))}
         <div className="link-container">
           <Link to="/">
-          <button className="submit-button">Home</button>
+          <button className="submit-button">Next Page</button>
           </Link>
         </div>
       </div>
