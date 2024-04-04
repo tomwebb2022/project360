@@ -55,16 +55,20 @@ function formatDate(value) {
 
     // Check if dateObj is valid
     if (isNaN(dateObj.getTime())) {
-        // If not a valid date, return the value as is
-        return value;
+        // If not a valid date, return null
+        return null;
     }
 
-    // Convert the date to the desired format
+    // Extract year, month, and day from the Date object
     const year = dateObj.getFullYear().toString().slice(-2);
     const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
     const day = ('0' + dateObj.getDate()).slice(-2);
-    return `${day}-${month}-${year}`;
+
+    // Create a new Date object with the desired format YY-MM-DD
+    return new Date(`${year}-${month}-${day}`);
 }
+
+
 
 
 const gallerySchema = new Schema({
@@ -75,14 +79,15 @@ const gallerySchema = new Schema({
     },
     // date: {
     //     type: Date,   // type Date instead of string -also creates issues  
-    //     required: true,
-    //     default: Date.now(),
+    //     // required: true,   // date field is causing problems so have made it optional
+    //     default: formatDate,
+    //     // set: formatDate,
     // },
     date: {
         type: String,  //changed type to string instead of date -causes some issues
-        required: true,
-        default: formatDate,
-        set: formatDate
+        required: false,
+        // default: 
+        // set: formatDate
     },
     videoUrl: {
         type: String,

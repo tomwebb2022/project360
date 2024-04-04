@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 .gallery-page {
   background-color: #fcfbf7;
   box-sizing: border-box;
@@ -58,12 +60,37 @@ p {
   grid-column: 1 / -1;
 }
 
-.navbar-container {
+.navbar h1 {
+  font-weight: 500;
+  font-size: 2rem;
+  font-family: 'Raleway', sans-serif;
+  color: #7c7c7c;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #7c7c7c;
+  font-size: 1.2rem;
+  
+  font-family: 'Raleway', sans-serif;
+  margin-right: -10rem;
+}
+
+.navbar h2 {
+  font-weight: 400;
+}
+
+.navbar a:hover {
+  color: #21196d;
+  font-weight: 400
+}
+
+.navbar img{
+  margin-left: -10rem;
 }
 .navbar {
   display: flex;
-  font-weight: 700;
-  font-size: 0.6rem;
+ 
   margin-bottom: 3rem;
   align-items: center;
   justify-content: space-around;
@@ -71,7 +98,7 @@ p {
   width: 100%;
   /* position: fixed; */
   top: 0;
-  height: 5rem;
+  height: 6rem;
   z-index: 100;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   /* border: red 1px solid; */
