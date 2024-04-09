@@ -92,14 +92,18 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route
           path="/dashboard"
-          element={isLoggedIn ? <Dashboard logout={logout} /> : <Navigate to="/" />}
+          element={isLoggedIn ? 
+          <Dashboard 
+          logout={logout} 
+          toggleForm={toggleForm}
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          formSubmitted={formSubmitted}
+          setFormSubmitted={setFormSubmitted}
+          modalState={setModalState}/> : <Navigate to="/" />}
         />
         <Route
-          path="/login"
-          // isLoggedIn={isLoggedIn}
-          // submitClick={submitClick}
-          // setSubmitClick={setSubmitClick}
-          
+          path="/login" 
           element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login updateClick={updateClick} />}
         />
       </Routes>

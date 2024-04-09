@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { emailRouter } from "./routes/routes.js";
 import { userRouter } from "./routes/routes.js";
+import { galleryRouter } from "./routes/routes.js";
 dotenv.config();
 
 const app = express();
@@ -30,3 +31,4 @@ app.listen(PORT, () => {
 // Sets up route handlers for two paths
 app.use("/emails", emailRouter);
 app.use("/users", userRouter);
+app.use("/gallery", galleryRouter);

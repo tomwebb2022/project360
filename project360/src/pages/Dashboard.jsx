@@ -1,10 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Dashboard.css";
+import UploadButton from "../components/dashboard/UploadButton";
 
-const Dashboard = ({logout}) => {
+const Dashboard = ({logout,  
+  formOpen,
+  setFormOpen,
+  formSubmitted,
+  setFormSubmitted,
+  closeForm,}) => {
   const [emailList, setEmailList] = useState([]);
 
   Dashboard.propTypes = {
@@ -40,7 +46,7 @@ const Dashboard = ({logout}) => {
       Logout
     </button>
 
-    <p>Expand subscribers' email list</p>
+    <p>Expand subscribers&apos; email list</p>
     {emailList.map((email, index) => {
       return (
         <div className="email-item" key={index}>
@@ -49,6 +55,12 @@ const Dashboard = ({logout}) => {
         </div>
       );
     })}
+    <UploadButton
+      formOpen={formOpen}
+      setFormOpen={setFormOpen}
+      formSubmitted={formSubmitted}
+      setFormSubmitted={setFormSubmitted}
+    />
   </div>
   );
 };
