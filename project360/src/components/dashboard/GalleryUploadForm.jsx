@@ -121,7 +121,7 @@ const GalleryUploadForm = ({
                 </label>
                 <input
                   {...register("date")}
-                  type="date" // could also be date if you want to use a date picker, but must change model/schema too
+                  type="text" // could also be date if you want to use a date picker, but must change model/schema too
                   className="form-control-d"
                   id="date"
                   placeholder="YY-MM-DD" //  (leave blank for today's date)"
