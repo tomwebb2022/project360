@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
-
-
+import  { useEffect } from 'react';
 
 VideoCard.propTypes = {
     videoName: PropTypes.string.isRequired,
@@ -26,4 +25,5 @@ export default function VideoCard(props) {
         </div>
     )
 }
+
 

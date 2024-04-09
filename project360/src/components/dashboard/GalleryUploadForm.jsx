@@ -114,21 +114,21 @@ const GalleryUploadForm = ({
                   {errors?.userVideo?.message}
                 </div>
               </div>
-   { /*
+   
               <div className="form-group">
                 <label htmlFor="date" className="form-label">
                   Creation Date
                 </label>
                 <input
                   {...register("date")}
-                  type="text" // could also be date if you want to use a date picker, but must change model/schema too
+                  type="date" // could also be date if you want to use a date picker, but must change model/schema too
                   className="form-control-d"
                   id="date"
                   placeholder="YY-MM-DD" //  (leave blank for today's date)"
                 />
                 <div className="error-message">{errors?.date?.message}</div>
               </div>
-              */}
+              
 
               <div className="form-group">
                 <label htmlFor="videoUrl" className="form-label">
