@@ -7,6 +7,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import "./Gallery.css"
 
+
 const Gallery = () => {
   const [videoData, setVideoData] = useState([]);
 
@@ -23,7 +24,7 @@ const Gallery = () => {
     getVideos();
     
   }, []);
-  // console.log(videoData[0]);
+  console.log(videoData[0]);
   
   return (
     <div className="gallery-page">
@@ -33,13 +34,13 @@ const Gallery = () => {
       {/* <div className="page-title"><h1>Gallery</h1></div> */}
       <div className="card-gallery">
         {videoData.map((data) => (
-          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data._id} key={data._id} />
         ))}
         {videoData.map((data) => (
-          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data._id} key={data._id} />
         ))}
         {videoData.map((data) => (
-          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data.id} key={data.id} />
+          <VideoCard videoName={data.videoName} date={data.date} videoUrl={data.videoUrl} downloadUrl={data.downloadUrl} id={data._id} key={data._id} />
         ))}
         <div className="link-container">
           <Link to="/gallery">
