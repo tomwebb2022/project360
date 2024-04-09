@@ -10,6 +10,7 @@ import {
   AreYouInterestedButton,
 } from "../components";
 import "./LandingPage.css";
+import { Link } from "react-router-dom";
 
 const LandingPage = ({
   formOpen,
@@ -37,6 +38,8 @@ const LandingPage = ({
       <CalendlyWidget />
 
       <FAQDisplay />
+
+      <Link to ="/gallery">View Gallery</Link>
 
       <SecretLoginButton />
 
