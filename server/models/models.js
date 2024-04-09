@@ -43,30 +43,30 @@ const userSchema = new Schema({
 });
 
 
-function formatDate(value) {
-    let dateObj;
-    if (typeof value === 'number') {
-        // If value is a timestamp (number), create a new Date object
-        dateObj = new Date(value);
-    } else {
-        // If value is already a string representation of a date, create a Date object from it
-        dateObj = new Date(value);
-    }
+// function formatDate(value) {
+//     let dateObj;
+//     if (typeof value === 'number') {
+//         // If value is a timestamp (number), create a new Date object
+//         dateObj = new Date(value);
+//     } else {
+//         // If value is already a string representation of a date, create a Date object from it
+//         dateObj = new Date(value);
+//     }
 
-    // Check if dateObj is valid
-    if (isNaN(dateObj.getTime())) {
-        // If not a valid date, return null
-        return null;
-    }
+//     // Check if dateObj is valid
+//     if (isNaN(dateObj.getTime())) {
+//         // If not a valid date, return null
+//         return null;
+//     }
 
-    // Extract year, month, and day from the Date object
-    const year = dateObj.getFullYear().toString().slice(-2);
-    const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
-    const day = ('0' + dateObj.getDate()).slice(-2);
+//     // Extract year, month, and day from the Date object
+//     const year = dateObj.getFullYear().toString().slice(-2);
+//     const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
+//     const day = ('0' + dateObj.getDate()).slice(-2);
 
-    // Create a new Date object with the desired format YY-MM-DD
-    return new Date(`${year}-${month}-${day}`);
-}
+//     // Create a new Date object with the desired format YY-MM-DD
+//     return new Date(`${year}-${month}-${day}`);
+// }
 
 
 
@@ -85,7 +85,7 @@ const gallerySchema = new Schema({
     // },
     date: {
         type: String,  //changed type to string instead of date -causes some issues
-        required: false,
+        // required: false,
         // default: 
         // set: formatDate
     },
@@ -96,13 +96,12 @@ const gallerySchema = new Schema({
     downloadUrl: {
         type: String,
         // required: true,
-        default: function() {
-            return this.videoUrl; // Set downloadUrl default value equal to videoUrl
-        }
+        // default: function() {
+        //     return this.videoUrl; // Set downloadUrl default value equal to videoUrl
+        // }
     },
     author: {
         type: String,
-        required: true,
         default: "James"
     }
 });
