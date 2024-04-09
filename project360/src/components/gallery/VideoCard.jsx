@@ -6,7 +6,7 @@ VideoCard.propTypes = {
     date: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
     downloadUrl: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.string.isRequired
 };
 
 export default function VideoCard(props) {

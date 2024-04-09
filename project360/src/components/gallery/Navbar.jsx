@@ -6,9 +6,9 @@ import logo2 from "../../assets/logo-camera.svg"
 export default function Navbar() {
     return(
         <div className="navbar"> 
-        <img className="nav-logo" src={logo2} alt="logo" />   
-        <img className="nav-brand" src={logo} alt="logo" />   
-        <Link to="/" ><h2>Home</h2></Link>  
+            <a href="/"> <img className="nav-logo" src={logo2} alt="logo" /> </a>
+            <img className="nav-brand" src={logo} alt="logo" />   
+            <Link to="/" ><h2>Home</h2></Link>  
         </div>
     )
 }
