@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import  { useEffect } from 'react';
+// import  { useEffect } from 'react';
 
 VideoCard.propTypes = {
     videoName: PropTypes.string.isRequired,
@@ -18,7 +18,7 @@ export default function VideoCard(props) {
         <div className="gallery-card">
             <div className="galleryVidWrapper">
                 <a href={downloadUrl} target="_blank" >
-                <iframe className="galleryVid" src={videoUrl} width="100%" height="100%" ></iframe> </a>
+                <iframe className="galleryVid" src={videoUrl} width="100%" height="100%" scrolling="no" align="center" ></iframe> </a>
             </div>
             <a href={downloadUrl} target="_blank" ><p>{date} {videoName}</p></a>
             

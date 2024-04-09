@@ -24,7 +24,7 @@ const Gallery = () => {
     getVideos();
     
   }, []);
-  console.log(videoData[0]);
+  // console.log(videoData[0]);
   
   return (
     <div className="gallery-page">
