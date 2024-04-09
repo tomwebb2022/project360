@@ -1,9 +1,13 @@
 import { GalleryModel } from "../models/models.js";
 
+
 export async function addGalleryVideo(req, res) {
   const newVideo = req.body;
+  
+  console.log(newVideo);
   try {
     const videoData = await GalleryModel.create(newVideo);
+    // console.log(videoData);
     res.status(201).json({ status: "success", data: videoData });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });

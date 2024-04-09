@@ -25,9 +25,9 @@ const GalleryUploadForm = ({
 
   const videoUploadSchema = z.object({
     videoName: z.string().min(1), // Ensure videoName is a non-empty string
-    date: z.string().regex(/^\d{2}-\d{2}-\d{2}$/), // Ensure date follows the format "YY-MM-DD"
-    videoUrl: z.string().url(), // Ensure videoUrl is a valid URL
-    downloadUrl: z.string().url(), // Ensure downloadUrl is a valid URL
+    date: z.string().optional(), // Ensure date is a string
+    videoUrl: z.string(), // Ensure videoUrl is a valid URL
+    downloadUrl: z.string(), // Ensure downloadUrl is a valid URL
     author: z.string().optional(), // Make author optional
   });
 
@@ -46,9 +46,9 @@ const GalleryUploadForm = ({
         downloadUrl: formData.downloadUrl,
         author: formData.author,
       };
-
+      // console.log(videoUpload);
       const response = await axios.post(
-        "http://localhost:3000/gallery",
+        "http://localhost:3000/gallery/",
         videoUpload
       );
 
