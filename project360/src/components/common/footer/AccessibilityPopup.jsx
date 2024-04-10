@@ -31,7 +31,7 @@ const AccessibilityPopup = ({ isOpen, onClose }) => {
       <h2 className="title-popup-footer">Web Accessibility Statement</h2>
 
       <p className="text-popup-footer">
-        ATEDO is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone, and applying the relevant accessibility standards.
+        Projct360 is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone, and applying the relevant accessibility standards.
       </p>
       </div>
     </Modal>

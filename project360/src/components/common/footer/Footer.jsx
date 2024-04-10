@@ -106,7 +106,7 @@ const Footer = ({ modalState, setModalState }) => {
 
       {/* Bottom of the footer - copyright info */}
       <div className="footer-copyright-bottom">
-        <p>© 2024 ATEDO. </p>
+        <p>© 2024 Projct360. </p>
       </div>
 
       {/* Popups */}
