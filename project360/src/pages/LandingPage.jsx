@@ -11,6 +11,7 @@ import {
 } from "../components";
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
+import logo from "../../src/assets/atedo_gallery_sm.png";
 
 const LandingPage = ({
   formOpen,
@@ -39,7 +40,7 @@ const LandingPage = ({
 
       <FAQDisplay />
 
-      <Link to ="/gallery">View Gallery</Link>
+      <Link to ="/gallery"><img src={logo} alt="link to gallery"/></Link>  
 
       <SecretLoginButton />
 
