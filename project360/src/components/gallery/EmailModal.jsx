@@ -50,7 +50,7 @@ const EmailModal = (
       };
 
       const response = await axios.post(
-        "http://localhost:3000/emails",
+        "https://project360-1.onrender.com/emails",
         newEmail
       );
 

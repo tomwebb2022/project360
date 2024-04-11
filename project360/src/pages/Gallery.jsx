@@ -14,7 +14,7 @@ const Gallery = () => {
   useEffect(() => {
     async function getVideos() {
       try {
-        const videoData = await axios.get("http://localhost:3000/gallery");
+        const videoData = await axios.get("https://project360-1.onrender.com/gallery");
         setVideoData(videoData.data);
       } catch (error) {
         console.error(error);

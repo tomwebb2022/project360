@@ -20,7 +20,7 @@ const Dashboard = ({logout,
   useEffect(() => {
     async function getEmails() {
       try {
-        const emailData = await axios.get("http://localhost:3000/emails")
+        const emailData = await axios.get("https://project360-1.onrender.com/emails")
         // console.log(emailData.data);
 
         setEmailList(emailData.data);

@@ -35,7 +35,7 @@ const Login = ({ updateClick }) => {
       console.log(userDetails);
 
       const response = await axios.post(
-        "http://localhost:3000/users/login",
+        "https://project360-1.onrender.com/users/login",
         userDetails
       );
       // console.log("login response", response.data);

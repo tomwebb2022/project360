@@ -47,7 +47,7 @@ const EmailCollectionPopUpForm = ({
       };
   
 
-      const response = await axios.post("http://localhost:3000/emails", newEmail);
+      const response = await axios.post("https://project360-1.onrender.com/emails", newEmail);
 
   
       console.log(response.data);
