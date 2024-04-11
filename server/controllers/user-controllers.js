@@ -23,7 +23,7 @@ export async function loginUser(req, res) {
     console.log("valid password",isPasswordValid);
     if (isPasswordValid) {
       // Generate a JWT token
-      const token = jwt.sign({ username: admin_username }, secretKey);
+      const token = jwt.sign({ username: admin_username }, secretKey, { expiresIn: "1h" }); // 1 hour expiration time for jwt token
       return res.status(200).json({ token, message: "Login successful" });
     } else {
       return res.status(401).json({ error: "Invalid password" });

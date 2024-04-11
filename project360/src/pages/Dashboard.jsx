@@ -21,7 +21,7 @@ const Dashboard = ({logout,
     async function getEmails() {
       try {
         const emailData = await axios.get("http://localhost:3000/emails")
-        console.log(emailData.data);
+        // console.log(emailData.data);
 
         setEmailList(emailData.data);
       } catch (error) {
@@ -34,7 +34,7 @@ const Dashboard = ({logout,
   }, []);
 
   const name = localStorage.getItem("name");
-  console.log(localStorage.getItem("name"));
+  // console.log(localStorage.getItem("name"));
 
   return (
     <div className="dashboard-container">

@@ -9,10 +9,10 @@ import { Navigate } from "react-router";
 
 const EmailModal = (
   {
-    //   isOpen,
-    //   onClose,
-    //   formSubmitted,
-    //   setFormSubmitted,
+    isOpen,
+    onClose,
+    formSubmitted,
+    setFormSubmitted,
   }
 ) => {
     
@@ -136,7 +136,7 @@ const EmailModal = (
           </div>
         ) : (
           <div className="form-content">
-            <h2>Thank you for subscribing!</h2>
+            <h2>Thank you</h2>
             <button
               className="submit-button"
               onClick={() => {
