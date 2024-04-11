@@ -29,7 +29,7 @@ const TeamPopup = ({ isOpen, onClose }) => {
       <div className="text-popups-container">
 
       <h1 className="title-popup-footer">Design & Development Team</h1>
-
+      <h2 className="subtitle-popup-footer">Anastasia Adamoudi, Sara Thampi, Thomas Vincent and Tom Webb</h2>
       </div>
     </Modal>
   );

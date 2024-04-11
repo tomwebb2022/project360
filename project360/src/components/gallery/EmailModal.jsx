@@ -9,10 +9,10 @@ import { Navigate } from "react-router";
 
 const EmailModal = (
   {
-    //   isOpen,
-    //   onClose,
-    //   formSubmitted,
-    //   setFormSubmitted,
+    isOpen,
+    onClose,
+    formSubmitted,
+    setFormSubmitted,
   }
 ) => {
     
@@ -50,7 +50,7 @@ const EmailModal = (
       };
 
       const response = await axios.post(
-        "http://localhost:3000/emails",
+        "https://project360-1.onrender.com/emails",
         newEmail
       );
 
@@ -136,7 +136,7 @@ const EmailModal = (
           </div>
         ) : (
           <div className="form-content">
-            <h2>Thank you for subscribing!</h2>
+            <h2>Thank you</h2>
             <button
               className="submit-button"
               onClick={() => {

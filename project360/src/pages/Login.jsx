@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Login = ({ updateClick }) => {
@@ -35,14 +35,14 @@ const Login = ({ updateClick }) => {
       console.log(userDetails);
 
       const response = await axios.post(
-        "http://localhost:3000/users/login",
+        "https://project360-1.onrender.com/users/login",
         userDetails
       );
-      console.log("login response", response.data);
+      // console.log("login response", response.data);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("name", response.data.name);
       updateClick();
-      console.log(response.data);
+      // console.log(response.data);
 
       reset({
         userName: "",

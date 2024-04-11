@@ -56,9 +56,9 @@ function App() {
     async function checkAuthentication() {
       try {
         // Retrieve authentication status from the server
-        const response = await axios.get("/users/authentication");
+        const response = await axios.get("https://project360-1.onrender.com/users/authentication");
         const isAuthenticated = response.data
-        console.log("Response data:", isAuthenticated);
+        // console.log("Response data:", isAuthenticated);
         // Set isLoggedIn based on the authentication status
         setIsLoggedIn(isAuthenticated);
       } catch (error) {
@@ -70,7 +70,7 @@ function App() {
   
     checkAuthentication();
   }, [updateClick]);
-  console.log("isLoggedIn", isLoggedIn);
+  // console.log("isLoggedIn", isLoggedIn);
   return (
     <Router>
       <Routes>
