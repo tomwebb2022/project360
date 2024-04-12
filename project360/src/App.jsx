@@ -72,7 +72,7 @@ function App() {
         );
         const isAuthenticated = response.data
       
-        console.log("Response data:", isAuthenticated , userName);
+        // console.log("Response data:", isAuthenticated , userName);
         // Set isLoggedIn based on the authentication status
         setIsLoggedIn(isAuthenticated);
       } catch (error) {

@@ -33,20 +33,19 @@ const Login = ({ updateClick, displayName }) => {
         password: formData.password,
       };
 
-      console.log(userDetails);
+      // console.log(userDetails);
       displayName(userDetails.username);
 
       const response = await axios.post(
         "https://project360-1.onrender.com/users/login",
         userDetails
       );
-      console.log("login response", response.data);
-      console.log("login token", response.data.token);
-      // console.log("login name", response.data.name);
+      // console.log("login response", response.data);
+      // console.log("login token", response.data.token);
+     
       localStorage.setItem("token", response.data.token);
-      // setUserName({})
+     
       updateClick();
-      // console.log(response.data);
 
       reset({
         userName: "",

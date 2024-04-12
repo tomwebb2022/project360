@@ -34,8 +34,6 @@ const Dashboard = ({logout,
     
   }, []);
 
-  // const name = localStorage.getItem("name");
-  // console.log(localStorage.getItem("name"));
 
   return (
     <div className="dashboard-container">
