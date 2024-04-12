@@ -6,6 +6,7 @@ import "./Dashboard.css";
 import UploadButton from "../components/dashboard/UploadButton";
 
 const Dashboard = ({logout,  
+  userName,
   formOpen,
   setFormOpen,
   formSubmitted,
@@ -33,19 +34,18 @@ const Dashboard = ({logout,
     
   }, []);
 
-  const name = localStorage.getItem("name");
+  // const name = localStorage.getItem("name");
   // console.log(localStorage.getItem("name"));
 
   return (
     <div className="dashboard-container">
-    <h1>Welcome, {name}</h1>
+    <h1>Welcome, {userName}</h1>
     <Link to="/">
     <button className="submit-button">Back to Home</button>
     </Link>
     <button className="logout-button" onClick={logout}>
       Logout
     </button>
-
     <p>Expand subscribers&apos; email list</p>
     {emailList.map((email, index) => {
       return (

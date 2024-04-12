@@ -6,10 +6,11 @@ import axios from "axios";
 // import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Login = ({ updateClick }) => {
+const Login = ({ updateClick, displayName }) => {
 
   Login.propTypes = {
   updateClick: PropTypes.func.isRequired,
+  displayName: PropTypes.func.isRequired,
 };
 
   const schema = z.object({
@@ -33,6 +34,7 @@ const Login = ({ updateClick }) => {
       };
 
       console.log(userDetails);
+      displayName(userDetails.username);
 
       const response = await axios.post(
         "https://project360-1.onrender.com/users/login",
@@ -42,7 +44,7 @@ const Login = ({ updateClick }) => {
       console.log("login token", response.data.token);
       // console.log("login name", response.data.name);
       localStorage.setItem("token", response.data.token);
-      // localStorage.setItem("name", response.data.name);
+      // setUserName({})
       updateClick();
       // console.log(response.data);
 

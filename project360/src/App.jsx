@@ -16,6 +16,7 @@ function App() {
   const [formOpen, setFormOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitClick, setSubmitClick] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const updateClick = useCallback(() => {
     submitClick ? setSubmitClick(false) : setSubmitClick(true);
@@ -51,6 +52,10 @@ function App() {
     <Navigate to="/" />;
   }
 
+  function displayName(name) {
+    setUserName(name);
+  }
+
   useEffect(() => {
     // Check user's authentication status when the component mounts
     async function checkAuthentication() {
@@ -66,7 +71,8 @@ function App() {
           }
         );
         const isAuthenticated = response.data
-        console.log("Response data:", isAuthenticated);
+      
+        console.log("Response data:", isAuthenticated , userName);
         // Set isLoggedIn based on the authentication status
         setIsLoggedIn(isAuthenticated);
       } catch (error) {
@@ -103,6 +109,7 @@ function App() {
           element={isLoggedIn ? 
           <Dashboard 
           logout={logout} 
+          userName={userName} 
           toggleForm={toggleForm}
           formOpen={formOpen}
           setFormOpen={setFormOpen}
@@ -112,7 +119,7 @@ function App() {
         />
         <Route
           path="/login" 
-          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login updateClick={updateClick} />}
+          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login updateClick={updateClick} displayName={displayName} />}
         />
       </Routes>
       <Footer
