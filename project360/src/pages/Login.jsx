@@ -38,9 +38,11 @@ const Login = ({ updateClick }) => {
         "https://project360-1.onrender.com/users/login",
         userDetails
       );
-      // console.log("login response", response.data);
+      console.log("login response", response.data);
+      console.log("login token", response.data.token);
+      // console.log("login name", response.data.name);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("name", response.data.name);
+      // localStorage.setItem("name", response.data.name);
       updateClick();
       // console.log(response.data);
 

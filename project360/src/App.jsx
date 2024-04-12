@@ -55,10 +55,18 @@ function App() {
     // Check user's authentication status when the component mounts
     async function checkAuthentication() {
       try {
+        const token = localStorage.getItem("token");
         // Retrieve authentication status from the server
-        const response = await axios.get("https://project360-1.onrender.com/users/authentication");
+        const response = await axios.get(
+          "https://project360-1.onrender.com/users/authentication",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        );
         const isAuthenticated = response.data
-        // console.log("Response data:", isAuthenticated);
+        console.log("Response data:", isAuthenticated);
         // Set isLoggedIn based on the authentication status
         setIsLoggedIn(isAuthenticated);
       } catch (error) {
