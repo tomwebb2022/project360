@@ -28,6 +28,7 @@ userRouter.get(
       // Authentication failed, handle accordingly
       res.status(401).json({ error: 'Authentication failed' });
     }
+    next();
   }
 );
 

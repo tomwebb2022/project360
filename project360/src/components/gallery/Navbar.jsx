@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom"
-
 import logo from "../../assets/atedo_gallery.png"
 import logo2 from "../../assets/logo-camera.svg"
-import logosm from "../../assets/atedo_gallery_sm.png"
+
 
 export default function Navbar() {
     return (
@@ -14,8 +13,6 @@ export default function Navbar() {
 
           
             <img className="nav-brand" src={logo} alt="logo" />
-          
-            <img className="nav-brandsm" src={logosm} alt="logo" />
         
 
             <Link to="/">

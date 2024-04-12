@@ -86,9 +86,11 @@ export function authenticateUser(req, res, next) {
 
     // Verify the token
     const decodedToken = jwt.verify(token, secretKey);
+    //extract the username from the decoded token
+    const username = decodedToken.username;
 
     // Authentication successful, send response with status 200 and authenticated: true
-    res.status(200).json({ authenticated: true });
+    res.status(200).json({ authenticated: true, username: username});
   } catch (error) {
     console.error("Error authenticating user:", error);
 
