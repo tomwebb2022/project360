@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "./Login.css";
+import { Projct360Logo } from "../assets";
 
 const Login = ({ updateClick, displayName }) => {
 
@@ -75,6 +77,12 @@ const Login = ({ updateClick, displayName }) => {
   };
 
   return (
+    <section className="login-container">
+    <div className="logo-container">
+      <Link to="/" alt="Projct360 Home">
+      <img src={Projct360Logo} alt="Projct360 Logo" className="logo" />
+      </Link>
+    </div>
     <div className="form-container">
       <div className="form-content">
         <h2>Please enter your admin username and password:</h2>
@@ -123,6 +131,7 @@ const Login = ({ updateClick, displayName }) => {
         {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
     </div>
+  </section>
   );
 };
 

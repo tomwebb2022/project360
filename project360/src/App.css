@@ -75,6 +75,20 @@
   color: gray;
 }
 
+.gallery-like-link {
+  font-family: var(--title);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 2rem;
+  color: rgb(141, 125, 125);
+  text-shadow: 1px 1px 1px rgba(171, 146, 146, 0.5);
+}
+
+.gallery-like-link:hover {
+  color: var(--teal);
+}
+
 .customOverlay {
   /* background: rgba(36, 123, 160, 0.7); */
   /* background-color: transparent; */

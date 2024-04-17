@@ -1,6 +1,7 @@
 import "./Footer.css";
 import { PrivacyPopup, TeamPopup, AccessibilityPopup } from "../index";
 import { instagramIcon, youtubeIcon } from "../../../assets";
+import { Link } from "react-router-dom";
 
 const Footer = ({ modalState, setModalState }) => {
   const { privacyOpen, teamOpen, accessibilityOpen } = modalState;
@@ -39,7 +40,7 @@ const Footer = ({ modalState, setModalState }) => {
         </div>
           <div>
             <a
-              href="https://www.instagram.com/jamescourtenay/"
+              href="https://www.instagram.com/"
               target="_blank"
               rel="noreferrer"
               alt="link to Instagram profile"
@@ -47,7 +48,7 @@ const Footer = ({ modalState, setModalState }) => {
               <img src={instagramIcon} alt="Instagram" className="contact-icon" />
             </a>
             <a
-              href="https://www.youtube.com/@bulaboy183"
+              href="https://www.youtube.com/"
               target="_blank"
               rel="noreferrer"
               alt="link to Youtube channel"
@@ -106,7 +107,7 @@ const Footer = ({ modalState, setModalState }) => {
 
       {/* Bottom of the footer - copyright info */}
       <div className="footer-copyright-bottom">
-        <p>© 2024 ATEDO. </p>
+        <p>© 2024 Projct360 </p>
       </div>
 
       {/* Popups */}

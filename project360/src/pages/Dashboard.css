@@ -1,8 +1,27 @@
 .dashboard-container {
     padding: 20px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
   }
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.logo {
+    width: auto;
+    height: 140px;
+    cursor: pointer;
+}
   
   .email-item {
     margin-bottom: 10px;
@@ -21,10 +40,20 @@
     cursor: pointer;
     height: 2.5rem;
     border-radius: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
   }
   
   .logout-button:hover {
     background-color: black;  
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
   }
   
   .form-control-d {
