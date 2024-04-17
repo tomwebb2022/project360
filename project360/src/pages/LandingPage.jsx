@@ -26,7 +26,6 @@ const LandingPage = ({
 }) => {
   return (
     <>
-
       <Hero />
 
       <WhatIs />
@@ -39,9 +38,9 @@ const LandingPage = ({
 
       <FAQDisplay />
 
-      <Link to ="/gallery" alt="link to gallery">
+      <Link to="/gallery" alt="link to gallery">
         <h2 className="gallery-like-link">Projct360 Gallery</h2>
-      </Link>  
+      </Link>
 
       <SecretLoginButton />
 

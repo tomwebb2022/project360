@@ -3,6 +3,7 @@
   background-color: #fcfbf7;
   box-sizing: border-box;
   border: transparent 1px solid;
+  margin-top: 6rem;
 }
 
 .card-gallery {
@@ -74,55 +75,8 @@ p {
   color: black;
 }
 
-.submit-button {
-  justify-self: center;
-}
-
 .link-container {
   grid-column: 1 / -1;
-}
-
-.navbar h1 {
-  font-weight: 500;
-  font-size: 2rem;
-  font-family: 'Raleway', sans-serif;
-  color: #7c7c7c;
-  /* color: #4D4D4D; this is the colour used for the website he likes */
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #7c7c7c;
-  font-size: 1.2rem;
-  margin-right: -10rem;
-}
-
-.navbar h2 {
-  font-weight: 400;
-}
-
-.navbar a:hover {
-  color: #21196d;
-  font-weight: 400
-}
-
-.navbar img{
-  margin-left: -10rem;
-}
-.navbar {
-  display: flex;
- 
-  margin-bottom: 3rem;
-  align-items: center;
-  justify-content: space-around;
-  background-color: white;
-  width: 100vw;
-  /* position: fixed; */
-  /* top: 0; */
-  height: 7rem;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  /* border: red 1px solid; */
 }
 
 .page-title {
@@ -135,20 +89,10 @@ p {
   /* border: red 1px solid; */
 }
 
-.nav-logo {
-  width: 11rem;
-  margin-left: 10rem;
-}
-
 .galleryVidWrapper {
   cursor: pointer;
 }
 
 a iframe {
   pointer-events: none;
-}
-
-.nav-brand {
- position: relative;
- top: -0.2rem;
 }

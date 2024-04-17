@@ -114,7 +114,7 @@ const GalleryUploadForm = ({
                   {errors?.userVideo?.message}
                 </div>
               </div>
-   
+
               <div className="form-group">
                 <label htmlFor="date" className="form-label">
                   Creation Date
@@ -128,7 +128,6 @@ const GalleryUploadForm = ({
                 />
                 <div className="error-message">{errors?.date?.message}</div>
               </div>
-              
 
               <div className="form-group">
                 <label htmlFor="videoUrl" className="form-label">

@@ -14,7 +14,6 @@ const Dashboard = ({
   setFormOpen,
   formSubmitted,
   setFormSubmitted,
-  closeForm,
 }) => {
   const [emailList, setEmailList] = useState([]);
   const [isEmailListExpanded, setIsEmailListExpanded] = useState(false);
@@ -26,7 +25,9 @@ const Dashboard = ({
   useEffect(() => {
     async function getEmails() {
       try {
-        const emailData = await axios.get("https://project360-1.onrender.com/emails");
+        const emailData = await axios.get(
+          "https://project360-1.onrender.com/emails"
+        );
         setEmailList(emailData.data);
       } catch (error) {
         console.error(error);
@@ -38,27 +39,30 @@ const Dashboard = ({
 
   return (
     <section className="dashboard-container">
-  <div className="logo-container">
+      <div className="logo-container">
         <Link to="/">
-    <img src={Projct360Logo} alt="Project360 Logo" className="logo" />
-  </Link>
+          <img src={Projct360Logo} alt="Project360 Logo" className="logo" />
+        </Link>
       </div>
       <h1>Welcome, {userName}</h1>
       <Link to="/gallery" className="gallery-like-link">
         Enter the gallery
       </Link>
       <div className="button-container">
-      <UploadButton
-        formOpen={formOpen}
-        setFormOpen={setFormOpen}
-        formSubmitted={formSubmitted}
-        setFormSubmitted={setFormSubmitted}
-      />
-      <button className="logout-button" onClick={logout}>
-        Logout
-      </button>
+        <UploadButton
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          formSubmitted={formSubmitted}
+          setFormSubmitted={setFormSubmitted}
+        />
+        <button className="logout-button" onClick={logout}>
+          Logout
+        </button>
       </div>
-      <p onClick={() => setIsEmailListExpanded(!isEmailListExpanded)} className="text-link">
+      <p
+        onClick={() => setIsEmailListExpanded(!isEmailListExpanded)}
+        className="text-link"
+      >
         Expand subscribers&apos; email list
       </p>
       <AnimatePresence>

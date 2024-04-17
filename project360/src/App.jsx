@@ -17,11 +17,11 @@ function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitClick, setSubmitClick] = useState(false);
   const [userName, setUserName] = useState("");
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
   const updateClick = useCallback(() => {
     submitClick ? setSubmitClick(false) : setSubmitClick(true);
   }, [submitClick]);
-
 
   const toggleForm = () => {
     setFormOpen(!formOpen);
@@ -66,12 +66,12 @@ function App() {
           "https://project360-1.onrender.com/users/authentication",
           {
             headers: {
-              Authorization: `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
-        const isAuthenticated = response.data
-      
+        const isAuthenticated = response.data;
+
         // console.log("Response data:", isAuthenticated , userName);
         // Set isLoggedIn based on the authentication status
         setIsLoggedIn(isAuthenticated);
@@ -81,7 +81,7 @@ function App() {
         setIsLoggedIn(false);
       }
     }
-  
+
     checkAuthentication();
   }, [updateClick]);
   // console.log("isLoggedIn", isLoggedIn);
@@ -103,23 +103,49 @@ function App() {
             />
           }
         />
-        <Route path="/gallery" element={<Gallery />} />
         <Route
-          path="/dashboard"
-          element={isLoggedIn ? 
-          <Dashboard 
-          logout={logout} 
-          userName={userName} 
-          toggleForm={toggleForm}
-          formOpen={formOpen}
-          setFormOpen={setFormOpen}
-          formSubmitted={formSubmitted}
-          setFormSubmitted={setFormSubmitted}
-          modalState={setModalState}/> : <Navigate to="/" />}
+          path="/gallery"
+          element={
+            <Gallery
+              burgerMenuOpen={burgerMenuOpen}
+              setBurgerMenuOpen={setBurgerMenuOpen}
+              isLoggedIn={isLoggedIn}
+              logout={logout}
+              formOpen={formOpen}
+              setFormOpen={setFormOpen}
+              formSubmitted={formSubmitted}
+              setFormSubmitted={setFormSubmitted}
+            />
+          }
         />
         <Route
-          path="/login" 
-          element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login updateClick={updateClick} displayName={displayName} />}
+          path="/dashboard"
+          element={
+            isLoggedIn ? (
+              <Dashboard
+                logout={logout}
+                userName={userName}
+                toggleForm={toggleForm}
+                formOpen={formOpen}
+                setFormOpen={setFormOpen}
+                formSubmitted={formSubmitted}
+                setFormSubmitted={setFormSubmitted}
+                modalState={setModalState}
+              />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/dashboard" />
+            ) : (
+              <Login updateClick={updateClick} displayName={displayName} />
+            )
+          }
         />
       </Routes>
       <Footer
