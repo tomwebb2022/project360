@@ -44,7 +44,7 @@ const Dashboard = ({
           <img src={Projct360Logo} alt="Project360 Logo" className="logo" />
         </Link>
       </div>
-      <h1>Welcome, {userName}</h1>
+      <h1 className="welcome-message">Welcome, {userName}</h1>
       <Link to="/gallery" className="gallery-like-link">
         Enter the gallery
       </Link>

@@ -11,7 +11,6 @@ import {
 import "./LandingPage.css";
 import "../App.css";
 import { Link } from "react-router-dom";
-import logo from "../../src/assets/atedo_gallery_sm.png";
 
 const LandingPage = ({
   formOpen,

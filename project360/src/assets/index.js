@@ -6,7 +6,9 @@ import youtubeIcon from './youtube-icon.svg';
 import cameraLens from './camera-lens.svg';
 import downArrow from './down-arrow.svg';
 
-import headerVideo from './landing-page/header-video.mp4';
+import exampleBanner from './example-banner.svg';
+
+import tooltipIcon from './tooltip-icon.svg';
 
 export {
     Projct360Logo,
@@ -14,5 +16,6 @@ export {
     youtubeIcon,
     cameraLens,
     downArrow,
-    headerVideo
+    exampleBanner,
+    tooltipIcon
 }
