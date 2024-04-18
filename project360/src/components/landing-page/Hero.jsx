@@ -15,14 +15,10 @@ const Hero = () => {
             animate="animate"
             className="title"
           >
-            ATEDO 360
+            Projct360
           </motion.h1>
 
-          <img
-            src={exampleBanner}
-            alt="example-banner"
-            className="background-image"
-          />
+          <img src={exampleBanner} alt="example banner" className="background-image" />
 
           <Slider />
         </div>

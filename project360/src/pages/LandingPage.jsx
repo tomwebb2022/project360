@@ -1,5 +1,4 @@
 import {
-  BackgroundVideo,
   Hero,
   WhatIs,
   ImpactStatement,
@@ -10,8 +9,8 @@ import {
   AreYouInterestedButton,
 } from "../components";
 import "./LandingPage.css";
+import "../App.css";
 import { Link } from "react-router-dom";
-import logo from "../../src/assets/atedo_gallery_sm.png";
 
 const LandingPage = ({
   formOpen,
@@ -26,8 +25,6 @@ const LandingPage = ({
 }) => {
   return (
     <>
-      {/* <BackgroundVideo /> */}
-
       <Hero />
 
       <WhatIs />
@@ -40,7 +37,9 @@ const LandingPage = ({
 
       <FAQDisplay />
 
-      <Link to ="/gallery"><img src={logo} alt="link to gallery"/></Link>  
+      <Link to="/gallery" alt="link to gallery">
+        <h2 className="gallery-like-link">Projct360 Gallery</h2>
+      </Link>
 
       <SecretLoginButton />
 

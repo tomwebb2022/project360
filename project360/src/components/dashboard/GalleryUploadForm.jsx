@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+import { tooltipIcon } from "../../assets";
 
 const GalleryUploadForm = ({
   isOpen,
@@ -108,13 +111,13 @@ const GalleryUploadForm = ({
                   type="text"
                   className="form-control-d"
                   id="name"
-                  placeholder="Untitled Video"
+                  placeholder="Name of the video"
                 />
                 <div className="error-message">
                   {errors?.userVideo?.message}
                 </div>
               </div>
-   
+
               <div className="form-group">
                 <label htmlFor="date" className="form-label">
                   Creation Date
@@ -128,25 +131,77 @@ const GalleryUploadForm = ({
                 />
                 <div className="error-message">{errors?.date?.message}</div>
               </div>
-              
 
               <div className="form-group">
+              <div className="title-line">
+                <div className="input-title">
                 <label htmlFor="videoUrl" className="form-label">
-                  Video Url
+                  Video Thumbnail Url
                 </label>
+                </div>
+                <div className="tooltip-icon-container">
+                  <a
+                    data-tooltip-id="thumbnailTip"
+                    data-tooltip-content={
+                      "The video thumbnail is the first thing your viewers see when they come across your video. It's important to make sure your thumbnail is eye-catching and relevant to your video content. It's usually a shorter version of the video itself, and it's a great way to grab your viewers' attention and get them to click on your video."
+                    }
+                    data-tooltip-place="top"
+                    className="tooltip-icon"
+                  >
+                    <img
+                      src={tooltipIcon}
+                      alt="tooltip-icon"
+                      className="tooltip-icon"
+                    />
+                  </a>
+                </div>
+                <Tooltip
+                  id="thumbnailTip"
+                  place="top"
+                  effect="solid"
+                  className="tooltip"
+                />
+              </div>
                 <input
                   {...register("videoUrl", { required: true })}
                   type="string"
                   className="form-control-d"
                   id="videoUrl"
-                  placeholder="Video Play Link"
+                  placeholder="Video Thumbnail"
                 />
                 <div className="error-message">{errors?.videoUrl?.message}</div>
               </div>
+          
               <div className="form-group">
+              <div className="title-line">
+                <div className="input-title">
                 <label htmlFor="downloadUrl" className="form-label">
                   Download Url
                 </label>
+                </div>
+                <div className="tooltip-icon-container">
+                  <a
+                    data-tooltip-id="downloadTip"
+                    data-tooltip-content={
+                      "The download link is the URL where your viewers can download your video. This is usually a direct link to the video file itself, but it can also be a link to a download page or a download button. Make sure your download link is easy to find and use, and that it's clearly labeled so your viewers know what to expect when they click on it."
+                    }
+                    data-tooltip-place="top"
+                    className="tooltip-icon"
+                  >
+                    <img
+                      src={tooltipIcon}
+                      alt="tooltip-icon"
+                      className="tooltip-icon"
+                    />
+                  </a>
+                </div>
+                <Tooltip
+                  id="downloadTip"
+                  place="top"
+                  effect="solid"
+                  className="tooltip"
+                />
+              </div>
                 <input
                   {...register("downloadUrl", { required: true })}
                   type="string"
@@ -167,7 +222,7 @@ const GalleryUploadForm = ({
                   type="string"
                   className="form-control-d"
                   id="author"
-                  placeholder="James"
+                  placeholder="Creator of the video"
                 />
                 <div className="error-message">{errors?.author?.message}</div>
               </div>

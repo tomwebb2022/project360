@@ -3,15 +3,16 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "./Login.css";
+import { Projct360Logo } from "../assets";
 
 const Login = ({ updateClick, displayName }) => {
-
   Login.propTypes = {
-  updateClick: PropTypes.func.isRequired,
-  displayName: PropTypes.func.isRequired,
-};
+    updateClick: PropTypes.func.isRequired,
+    displayName: PropTypes.func.isRequired,
+  };
 
   const schema = z.object({
     username: z.string().nonempty({ message: "Username is required" }),
@@ -42,9 +43,9 @@ const Login = ({ updateClick, displayName }) => {
       );
       // console.log("login response", response.data);
       // console.log("login token", response.data.token);
-     
+
       localStorage.setItem("token", response.data.token);
-     
+
       updateClick();
 
       reset({
@@ -75,54 +76,61 @@ const Login = ({ updateClick, displayName }) => {
   };
 
   return (
-    <div className="form-container">
-      <div className="form-content">
-        <h2>Please enter your admin username and password:</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group">
-            <label htmlFor="username" className="form-label">
-              Username
-            </label>
-            <input
-              {...register("username", { required: true })}
-              type="text"
-              className="form-control"
-              id="username"
-              placeholder="Enter the username"
-            />
-            <div className="error-message">{errors?.username?.message}</div>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input
-              {...register("password", { required: true })}
-              type="password"
-              className="form-control"
-              id="password"
-              placeholder="Enter the password"
-            />
-            <div className="error-message">{errors?.password?.message}</div>
-          </div>
-
-          <div className="submit-button-container">
-            <button type="submit" className="submit-button">
-              Log in
-            </button>
-          </div>
-        </form>
-        {validationErrors.length > 0 && (
-          <div className="error-message">
-            {validationErrors.map((error, index) => (
-              <p key={index}>{error.message}</p>
-            ))}
-          </div>
-        )}
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+    <section className="login-container">
+      <div className="logo-container">
+        <Link to="/" alt="Projct360 Home">
+          <img src={Projct360Logo} alt="Projct360 Logo" className="logo" />
+        </Link>
       </div>
-    </div>
+      <div className="login-form-container">
+        <div className="login-form-content">
+          <h2>Please enter your admin username and password:</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-group">
+              <label htmlFor="username" className="form-label">
+                Username
+              </label>
+              <input
+                {...register("username", { required: true })}
+                type="text"
+                className="form-control"
+                id="username"
+                placeholder="Enter the username"
+              />
+              <div className="error-message">{errors?.username?.message}</div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                {...register("password", { required: true })}
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Enter the password"
+              />
+              <div className="error-message">{errors?.password?.message}</div>
+            </div>
+
+            <div className="submit-button-container">
+              <button type="submit" className="submit-button">
+                Log in
+              </button>
+            </div>
+          </form>
+          {validationErrors.length > 0 && (
+            <div className="error-message">
+              {validationErrors.map((error, index) => (
+                <p key={index}>{error.message}</p>
+              ))}
+            </div>
+          )}
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
+        </div>
+      </div>
+    </section>
   );
 };
 
