@@ -49,7 +49,9 @@ const Gallery = ({
           logout={logout}
         />
       </div>
-      {/* <div className="page-title"><h1>Gallery</h1></div> */}
+      <div className="title-container">
+        <h1 className="navbar-title">Gallery</h1>
+      </div>
       <div className="card-gallery">
         {videoData.map((data) => (
           <VideoCard

@@ -4,30 +4,42 @@
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    padding: 0 20px;
+    padding: 0 2rem;;
     width: 100%;
     top: 0;
     left: 0;
+    right: 0;
     position: fixed;
-    height: 6rem;
+    height: 5rem;
     z-index: 10;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
   
-  .logo-container {
+  .left-side-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 0 auto 0 2rem;
+    margin-left: -1rem;
+    width: auto;
     height: 100%;
   }
 
-  .title-container {
+  .right-side-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-right: 1rem;
+    width: auto;
     height: 100%;
-    margin: auto;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    height: 140px;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .desktop-menu-content {
@@ -35,22 +47,31 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    margin: -1rem 2rem 0 auto;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    width: auto;
     height: 100%;
   }
 
-  .dashboard-link {
-    margin-left: 1rem;
+  .desktop-menu-content-logged-in {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 0.8rem;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
-  .navbar-title {
-    font-family: var(--title);
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 3rem;
-    color: rgb(141, 125, 125);
-    text-shadow: 1px 1px 1px rgba(171, 146, 146, 0.5);
+  .login-button {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left: auto;
+    height: 80px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .burger-menu {
@@ -58,7 +79,7 @@
     cursor: pointer;
     transition: background-color 0.4s;
     align-self: center;
-    margin: 0 20px auto auto;
+    margin: 1.2rem 2rem auto auto;
 }
 
 .bar {
@@ -96,15 +117,14 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 6rem;
+    top: 5rem;
     left: auto;
-    right: 40px;
+    right: 4rem;
     background-color: white;
     z-index: 10;
     width: 40%;
-    height: 180px !important;
     justify-content: start;  
-    align-items: center;
+    align-items: end;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -147,15 +167,8 @@
         align-self: center;
     }
 
-    .header-popup-button-container {
-        display: none;
-    }
-
-    .navbar-title {
-        display: none;
-    }
-
     .burger-menu-content {
-        height: 20vh;
+        height: auto;
+        padding: 0 1rem 1rem 0;
     }
 }

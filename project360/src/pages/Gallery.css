@@ -4,13 +4,34 @@
   box-sizing: border-box;
   border: transparent 1px solid;
   margin-top: 6rem;
+  padding: 0 2rem;
+  width: 100%;
 }
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 1rem auto;
+}
+
+.navbar-title {
+  font-family: var(--title);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 3rem;
+  color: rgb(141, 125, 125);
+  text-shadow: 1px 1px 1px rgba(171, 146, 146, 0.5);
+}
+
 
 .card-gallery {
   display: grid;
   position: relative;
   margin-bottom: 10rem;
-  margin-top: 6rem;
+  margin-top: 1rem;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   /* border: blue 1px solid; */
   gap: 0.5rem;
