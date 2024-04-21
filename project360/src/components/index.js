@@ -1,4 +1,3 @@
-import BackgroundVideo from './landing-page/BackgroundVideo'
 import Hero from './landing-page/Hero'
 import WhatIs from './landing-page/WhatIs'
 import ImpactStatement from './landing-page/ImpactStatement'
@@ -11,7 +10,6 @@ import SecretLoginButton from './landing-page/SecretLoginButton'
 import Slider from './landing-page/Slider'
 
 export {
-    BackgroundVideo,
     Hero,
     WhatIs,
     ImpactStatement,

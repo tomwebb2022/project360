@@ -1,4 +1,4 @@
-import { exampleBanner } from "../../assets";
+import { bannerVideo } from "../../assets";
 import Slider from "./Slider";
 import { motion } from "framer-motion";
 import { titleVariant } from "../../motion/landing-page";
@@ -18,7 +18,9 @@ const Hero = () => {
             Projct360
           </motion.h1>
 
-          <img src={exampleBanner} alt="example banner" className="background-image" />
+          <video autoPlay muted loop className="background-image">
+            <source src={bannerVideo} type="video/mp4" />
+          </video>
 
           <Slider />
         </div>
