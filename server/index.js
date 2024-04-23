@@ -37,12 +37,12 @@ app.use("/users", userRouter);
 app.use("/videos", galleryRouter);
 
 // Serve static files from the dist directory in the project folder
-app.use(express.static(path.join(__server, '..', 'project360', 'dist')));
+// app.use(express.static(path.join(__server, '..', 'project360', 'dist')));
 
 // Define a catch-all route to serve the index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__server, '..', 'project360', 'dist', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__server, '..', 'project360', 'dist', 'index.html'));
+// });
 
 
 
