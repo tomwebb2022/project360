@@ -51,7 +51,7 @@ const GalleryUploadForm = ({
       };
       // console.log(videoUpload);
       const response = await axios.post(
-        "https://project360-1.onrender.com/gallery/",
+        "https://project360-1.onrender.com/videos/",
         videoUpload
       );
 

@@ -81,10 +81,10 @@ const Footer = ({ modalState, setModalState }) => {
         
         <div className="footer-popup-button-container" id="video-creadits-button">
           Videos by: &nbsp;
-          <a href="https://www.pexels.com/video/video-presentation-of-the-outer-space-3194277/" className="text-link">Frank Cone</a>, &nbsp;
-          <a href="https://www.pexels.com/video/northern-lights-time-lapse-5700806/" className="text-link">Nico Becker</a>, &nbsp;
-          <a href="https://www.pexels.com/video/the-colors-of-aurora-in-the-sky-on-a-starry-night-3222269/" className="text-link">Adi K</a>, &nbsp;
-          <a href="https://www.pexels.com/video/galaxy-in-night-sky-over-lake-13423369/" className="text-link">Dmitry Varennikov</a>
+          <a href="https://www.pexels.com/video/video-presentation-of-the-outer-space-3194277/" target="_blank" className="text-link">Frank Cone</a>, &nbsp;
+          <a href="https://www.pexels.com/video/northern-lights-time-lapse-5700806/" target="_blank" className="text-link">Nico Becker</a>, &nbsp;
+          <a href="https://www.pexels.com/video/the-colors-of-aurora-in-the-sky-on-a-starry-night-3222269/" target="_blank" className="text-link">Adi K</a>, &nbsp;
+          <a href="https://www.pexels.com/video/galaxy-in-night-sky-over-lake-13423369/" target="_blank" className="text-link">Dmitry Varennikov</a>
         </div>
 
         <div className="footer-popup-button-container" id="privacy-button">

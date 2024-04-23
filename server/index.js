@@ -15,6 +15,8 @@ const mongoUri = process.env.MONGO_URI;
 app.use(express.json());
 app.use(cors());
 
+
+
 mongoose
   .connect(mongoUri)
   .then(() => {
@@ -31,7 +33,18 @@ app.listen(PORT, () => {
 // Sets up route handlers for two paths
 app.use("/emails", emailRouter);
 app.use("/users", userRouter);
-app.use("/gallery", galleryRouter);
+app.use("/videos", galleryRouter);
+
+// Serve static files from the dist directory in the project folder
+app.use(express.static(path.join(__server, '..', 'project360', 'dist')));
+
+// Define a catch-all route to serve the index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__server, '..', 'project360', 'dist', 'index.html'));
+});
+
+
+
 app.get("/", (req, res) => {
-  res.send("Connected successfully to Project360 server! Use routes /emails, /users, or /gallery to access data.");
+  res.send("Connected successfully to Project360 server! Use routes /emails, /users, or /videos to access data.");
 });
