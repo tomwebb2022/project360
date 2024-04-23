@@ -23,7 +23,7 @@ const Gallery = ({
     async function getVideos() {
       try {
         const videoData = await axios.get(
-          "https://project360-1.onrender.com/gallery"
+          "https://project360-1.onrender.com/videos"
         );
         setVideoData(videoData.data);
       } catch (error) {
