@@ -1,4 +1,4 @@
-import { bannerVideo } from "../../assets";
+import { NasaImage } from "../../components/api/nasa";
 import Slider from "./Slider";
 import { motion } from "framer-motion";
 import { titleVariant } from "../../motion/landing-page";
@@ -17,11 +17,7 @@ const Hero = () => {
           >
             Projct360
           </motion.h1>
-
-          <video autoPlay muted loop className="background-image">
-            <source src={bannerVideo} type="video/mp4" />
-          </video>
-
+          <NasaImage />
           <Slider />
         </div>
       </div>
@@ -30,3 +26,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
