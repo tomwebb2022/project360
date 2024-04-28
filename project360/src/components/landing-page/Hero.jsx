@@ -1,4 +1,4 @@
-import { NasaImage } from "../../components/api/nasa";
+import  NasaImage  from "../api/nasa";
 import Slider from "./Slider";
 import { motion } from "framer-motion";
 import { titleVariant } from "../../motion/landing-page";
@@ -9,14 +9,7 @@ const Hero = () => {
     <section id="hero">
       <div className="hero-container">
         <div className="hero-content">
-          <motion.h1
-            variants={titleVariant}
-            initial="initial"
-            animate="animate"
-            className="title"
-          >
-            Projct360
-          </motion.h1>
+          <h2> Projct 360</h2>
           <NasaImage />
           <Slider />
         </div>
