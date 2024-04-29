@@ -4,13 +4,14 @@ const NasaImage = () => {
 
   const [imageUrl, setImageUrl] = useState('');
 
+  const NasaApiKey = import.meta.env.VITE_NASA_API_KEY;
 
   useEffect(() => {
 
     const fetchNasaImage = async () => {
       try {
 
-        const response = await fetch("https://api.nasa.gov/planetary/apod?api_key=E9U4RDM9Ft1KIOPkNLzLwEztgboavrp1pncARc2U");
+        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NasaApiKey}`);
 
         const data = await response.json();
 
