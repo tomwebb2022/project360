@@ -9,7 +9,14 @@ const Hero = () => {
     <section id="hero">
       <div className="hero-container">
         <div className="hero-content">
-          <h2> Projct 360</h2>
+        <motion.h1
+            variants={titleVariant}
+            initial="initial"
+            animate="animate"
+            className="title"
+          >
+            Projct360
+          </motion.h1>
           <NasaImage />
           <Slider />
         </div>
